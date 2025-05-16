@@ -12,4 +12,17 @@ module.exports = {
     },
   },
   plugins: [],
+  content: [
+    './**/*.{js,ts,jsx,tsx}', 
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ]
 };
