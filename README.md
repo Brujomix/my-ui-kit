@@ -22,8 +22,11 @@ git submodule add https://github.com/Brujomix/my-ui-kit.git lib/ui-kit
 
 3. Una Vez instalado e inicializado tailwind anñade estas lineas a tailwindconfig.js
 
+import uiKitTailwindPreset from "./lib/ui-kit/tailwind.preset.js"
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  presets:[uiKitTailwindPreset],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
