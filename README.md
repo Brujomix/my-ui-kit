@@ -9,7 +9,7 @@ Componentes reutilizables de UI en React + TypeScript con clases Tailwind.
 1. Agrega el subrepo:
 
 // - bash
-git submodule add https://github.com/tu_usuario/ui-kit.git src/ui-kit
+git submodule add https://github.com/Brujomix/my-ui-kit.git lib/ui-kit
 
 
 2. repo Principal
@@ -17,8 +17,8 @@ git submodule add https://github.com/tu_usuario/ui-kit.git src/ui-kit
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@my-ui-kit": ["src/ui-kit/src/index.ts"],
-      "@my-ui-kit/*": ["src/ui-kit/src/*"]
+      "@my-ui-kit": ["lib/ui-kit/src/index.ts"],
+      "@my-ui-kit/*": ["lib/ui-kit/src/*"]
     }
   }
 }
