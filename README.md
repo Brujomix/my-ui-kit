@@ -41,3 +41,5 @@ module.exports = {
   },
   plugins: [],
 }
+
+4. En Layout principal de la app import "@my-ui-kit/global.css";
