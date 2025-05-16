@@ -19,3 +19,22 @@ git submodule add https://github.com/Brujomix/my-ui-kit.git lib/ui-kit
       "@my-ui-kit": ["lib/ui-kit/src/index.ts"],
       "@my-ui-kit/*": ["lib/ui-kit/src/*"]
     }
+
+3. Una Vez instalado e inicializado tailwind anñade estas lineas a tailwindconfig.js
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+
+    // Ruta a tu submódulo UI Kit:
+    './lib/ui-kit/src/**/*.{ts,tsx,js,jsx}', ✔ esta línea a la ruta de submodule
+
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
