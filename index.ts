@@ -8,4 +8,7 @@ export * from "./components/sections/Footer"
 //Layouts
 export * from "./components/layouts/GeneralLayout"
 //Modals
-export * from "./components/modals/Modal_Container"
+export * from "./components/modals/GlobalModalManager"
+//Toast
+export * from "./components/toast/Toast_Container"
+export * from "./components/toast/useToast"

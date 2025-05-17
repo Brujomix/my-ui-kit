@@ -46,14 +46,33 @@ Componentes reutilizables de UI en React + TypeScript con clases Tailwind.
    }
    ```
 
-4. En Layout principal de la app importar;
+4. En Layout principal de la app importar y renderizar;
 ```js
   import "@my-ui-kit/global.css";
   import { ProviderRedux } from "@my-ui-kit/redux";
+  import { GlobalModalManager, Toast_Container } from "@/lib/ui-kit";
+
+  return (
+    <html lang="en">
+      <ProviderRedux>
+        <body>
+          <main>
+            {children}
+            <GlobalModalManager/>
+            <Toast_Container/>
+          </main>
+        </body>
+      </ProviderRedux>
+    </html>
+  );
 ```
 
 5. En App anfitrion instalar dependecias:
 
 ```bash
-  pnpm install @reduxjs/toolkit react-redux
+  pnpm i @reduxjs/toolkit react-redux
+  pnpm i react-toastify
 ```
+
+6. Los Modales Renderizados en RenderModal se definen en App Anfitrion y se importan
+los componentes TSX en REnderModals.tsx para ser evaluados y mostrados por redux
