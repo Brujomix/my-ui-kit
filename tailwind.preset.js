@@ -3,6 +3,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        //warnings
+        danger: "#DC3545",
+        success : "#28A745",
+        warning: "#FFC107",
         //White
         white: "#FFFF",
         //black

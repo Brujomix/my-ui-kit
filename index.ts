@@ -1,9 +1,11 @@
 //buttons
-export * from "./components/buttons/Button"
+export * from "./components/tags/Button"
 //sections
 export * from "./components/sections/Header"
 export * from "./components/sections/Aside"
 export * from "./components/sections/NavBar"
 export * from "./components/sections/Footer"
-//Layoput
+//Layouts
 export * from "./components/layouts/GeneralLayout"
+//Modals
+export * from "./components/modals/Modal_Container"
