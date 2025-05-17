@@ -1,13 +1,29 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
+import { clsx } from "clsx";
 
-interface buttonProps  {
-    children : ReactNode,
-    onclick : ()=>void,
-    className ? : string
+interface ButtonProps {
+  children: ReactNode;
+  onClick: () => void;
+  className?: string;
+  type?: "button" | "submit";
+  disabled?: boolean;
 }
 
-export function Button({children, onclick, className} : buttonProps) {
+export function Button({
+  children,
+  onClick,
+  className,
+  type = "button",
+  disabled = false,
+}: ButtonProps) {
   return (
-    <button onClick={onclick} className={`${className} bg-primary p-2 border rounded-md`}>{children}</button>
-  )
+    <button
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+      className={clsx("p-2 border rounded-md", className)}
+    >
+      {children}
+    </button>
+  );
 }
