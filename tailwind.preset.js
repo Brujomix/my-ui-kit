@@ -5,9 +5,9 @@ module.exports = {
     extend: {
       colors: {
         //black
-        darkblack : "#000000",
+        darkBlack : "#000000",
         //white
-        smokewhite : "#F5F5F5",
+        smokeWhite : "#F5F5F5",
         //warnings
         danger: "#DC3545",
         success : "#28A745",
