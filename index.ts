@@ -16,4 +16,6 @@ export * from "./components/toast/useToast";
 export * from "./components/icons"
 //Toogle
 export * from "./components/toggles/ToogleMode"
+//user
+export * from "./components/user/CurrentUser"
 

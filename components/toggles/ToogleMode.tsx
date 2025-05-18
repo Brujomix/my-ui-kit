@@ -15,11 +15,11 @@ export function ToogleMode() {
     <>
       {!themeMode ? (
         <Button onClick={toggleTheme}>
-          <Sun className="w-5 h-5 text-black"/>
+          <Sun className="w-4 h-4 text-black"/>
         </Button>
       ) : (
         <Button onClick={toggleTheme}>
-          <Moon className="w-5 h-5 text-black"/>
+          <Moon className="w-4 h-4 text-black"/>
         </Button>
       )}
     </>

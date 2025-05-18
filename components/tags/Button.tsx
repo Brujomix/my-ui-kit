@@ -21,7 +21,7 @@ export function Button({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={clsx("p-2 border rounded-md", className)}
+      className={clsx("p-1 border bg-smokewhite dark:bg-deepGray border-deepBlue dark:border-darkblack rounded-md", className)}
     >
       {children}
     </button>

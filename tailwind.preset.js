@@ -5,15 +5,13 @@ module.exports = {
     extend: {
       colors: {
         //black
-        darkBlack : "#F000",
+        darkblack : "#000000",
+        //white
+        smokewhite : "#F5F5F5",
         //warnings
         danger: "#DC3545",
         success : "#28A745",
         warning: "#FFC107",
-        //White
-        white: "#FFFF",
-        //black
-        black: "#OOOO",
         //Blue
         darkBlue: "#293241",
         deepBlue: "#3D5A80",
