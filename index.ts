@@ -18,4 +18,6 @@ export * from "./components/icons"
 export * from "./components/toggles/ToogleMode"
 //user
 export * from "./components/user/CurrentUser"
+//Badges
+export * from "./components/badge/Badge"
 
