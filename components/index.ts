@@ -12,6 +12,7 @@ export * from "./hooks/useModal";
 export * from "./hooks/useModalStore";
 export * from "./hooks/useUsersStorage";
 export * from "./hooks/useAuth";
+export * from "./hooks/useInput"
 //Modals
 export * from "./modals/ModalProvider";
 //Toast
@@ -31,6 +32,7 @@ export * from "./utils/generateCryptoId"
 export * from "./forms/LoginForm"
 //Tags
 export * from "./tags/Button"
-export * from "./tags/InputText"
+export * from "./tags/Input"
+
 
 
