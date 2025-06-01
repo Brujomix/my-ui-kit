@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import pkg from '../../../../package.json';
+import pkg from '../../../package.json';
 
 const version = pkg.version;
 

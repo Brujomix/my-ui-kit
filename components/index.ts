@@ -7,8 +7,13 @@ export * from "./sections/NavBar";
 export * from "./sections/Footer";
 //Layouts
 export * from "./layouts/GeneralLayout";
+//Hooks
+export * from "./hooks/useModal";
+export * from "./hooks/useModalStore";
+export * from "./hooks/useUsersStorage";
+export * from "./hooks/useAuth";
 //Modals
-export * from "./modals/GlobalModalManager";
+export * from "./modals/ModalProvider";
 //Toast
 export * from "./toast/Toast_Container";
 export * from "./toast/useToast";
@@ -20,4 +25,12 @@ export * from "./toggles/ToogleMode"
 export * from "./user/CurrentUser"
 //Badges
 export * from "./badge/Badge"
+//utils
+export * from "./utils/generateCryptoId"
+//forms
+export * from "./forms/LoginForm"
+//Tags
+export * from "./tags/Button"
+export * from "./tags/InputText"
+
 
