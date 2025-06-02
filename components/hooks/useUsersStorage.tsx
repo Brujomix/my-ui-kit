@@ -1,15 +1,15 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
+import { User } from "firebase/auth";
 
-type User = {
-    displayName: string
-    email: string
-    rol: string
+type UserApp = {
+    user : User
+    rol?: string
 }
 
 type UserStorageProps = {
-    currentUser: User | null,
-    logIn: (user : User) => void
+    currentUser: UserApp | null,
+    logIn: (user : UserApp) => void
     logOut: () => void
 }
 

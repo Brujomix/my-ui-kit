@@ -9,6 +9,7 @@ export function useInput<T = string>({ initialValue, type = "text", }: useInputP
 
   const [value, setValue] = useState<T>(initialValue)
   const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState<null | string>(null)
 
   const onChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -24,7 +25,11 @@ export function useInput<T = string>({ initialValue, type = "text", }: useInputP
     }
   }
 
-  const reset = () => setValue(initialValue)
+  const reset = ()=>setValue(initialValue)
+
+  const asignError = (error : string)=>{
+    setError(error)
+  }
 
   const togglePasswordVisibility = () => {
     if (type === "password") {
@@ -35,10 +40,12 @@ export function useInput<T = string>({ initialValue, type = "text", }: useInputP
   return {
     value,
     onChange,
+    error,
     reset,
     showPassword,
     inputType: type === "password" ? (showPassword ? "text" : "password") : type,
     togglePasswordVisibility,
+    asignError,
     bind: {
       value: type === "checkbox" ? undefined : value,
       checked: type === "checkbox" ? (value as unknown as boolean) : undefined,

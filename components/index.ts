@@ -33,6 +33,10 @@ export * from "./forms/LoginForm"
 //Tags
 export * from "./tags/Button"
 export * from "./tags/Input"
+export * from "./tags/FormFiled"
+//Firebase
+export * from "../firebase/firebaseConfig"
+
 
 
 
