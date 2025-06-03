@@ -1,12 +1,26 @@
-type CurrentUserProps = {
-  displayName: string;
-};
+import { useAuth } from "../hooks/useAuth";
+import { PerfilUser } from "../icons";
 
-export function CurrentUser({ displayName }: CurrentUserProps) {
+export function CurrentUser() {
+
+  const { currentUser } = useAuth()
+
   return (
-    <div className="grid place-items-center">
-      <span className="text-xs italic tracking-wider">Bienvenido</span>
-      <span className="text-xs">{displayName}</span>
-    </div>
+    <>
+      {
+        currentUser &&
+        <div className="flex justify-center items-center gap-2">
+          <div className="hidden md:block">
+            {currentUser.user.photoURL
+              ?
+              <img src={currentUser.user.photoURL || ""} alt="Image Profile" />
+              : <PerfilUser />}
+          </div>
+       
+            <p className="text-xs">{currentUser && currentUser.user.email}</p>
+
+        </div>
+      }
+    </>
   );
 }

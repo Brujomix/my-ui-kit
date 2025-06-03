@@ -1,9 +1,15 @@
-import { ReactNode } from "react";
+import {  ReactNode } from "react";
 
 type AsideProps = {
-    children : ReactNode
+  asideContent?: ReactNode
 };
 
-export function Aside({children}: AsideProps) {
-  return <aside>{children}</aside>;
+export function Aside({ asideContent }: AsideProps) {
+  return (
+    <aside  className="z-40 p-4 fixed right-0 top w-fit h-screen shadow-l shadow-md shadow-lightGray backdrop-blur-md">
+  
+        {asideContent}
+
+    </aside>
+  );
 }

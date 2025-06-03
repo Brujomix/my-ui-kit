@@ -5,6 +5,7 @@ export * from "./sections/Header";
 export * from "./sections/Aside";
 export * from "./sections/NavBar";
 export * from "./sections/Footer";
+export * from "./sections/Menu";
 //Layouts
 export * from "./layouts/GeneralLayout";
 //Hooks
@@ -34,6 +35,7 @@ export * from "./forms/LoginForm"
 export * from "./tags/Button"
 export * from "./tags/Input"
 export * from "./tags/FormFiled"
+export * from "./tags/Brand"
 //Firebase
 export * from "../firebase/firebaseConfig"
 
