@@ -17,3 +17,4 @@ export * from "./Photo";
 export * from "./EyesOpen";
 export * from "./EyesClose";
 export * from "./VerticalDots";
+export * from "./PerfilUser";
