@@ -18,7 +18,10 @@ export const useUsersStorage = create<UserStorageProps>()(
     (set) => ({
       currentUser: null,
       logIn: (user) => set({ currentUser: user }),
-      logOut: () => set({ currentUser: null }),
+      logOut: () => {
+        localStorage.removeItem("user-storage");
+        set({ currentUser: null });
+      },
     }),
     {
       name: "user-storage",
