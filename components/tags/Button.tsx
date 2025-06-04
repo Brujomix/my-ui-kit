@@ -3,7 +3,7 @@ import { clsx } from "clsx";
 
 type ButtonProps = {
   children: ReactNode;
-  onClick: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
   type?: "button" | "submit";
   disabled?: boolean;

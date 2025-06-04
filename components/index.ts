@@ -8,8 +8,14 @@ export * from "./sections/Footer";
 export * from "./sections/Menu";
 //Layouts
 export * from "./layouts/GeneralLayout";
+//Hooks
+export * from "./hooks/useModal";
+export * from "./hooks/useModalStore";
+export * from "./hooks/useUsersStorage";
+export * from "./hooks/useAuth";
+export * from "./hooks/useInput"
 //Modals
-export * from "./modals/GlobalModalManager";
+export * from "./modals/ModalProvider";
 //Toast
 export * from "./toast/Toast_Container";
 export * from "./toast/useToast";
