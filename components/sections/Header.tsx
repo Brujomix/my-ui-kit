@@ -5,11 +5,12 @@ import { VerticalDots } from "../icons";
 import { Brand } from "../tags/Brand";
 
 type HeaderProps = {
-  children?: ReactNode;
+  children?: ReactNode
   headerHeight: number
+  onToggleAside : ()=>void
 };
 
-export function Header({ children, headerHeight }: HeaderProps) {
+export function Header({ children, headerHeight, onToggleAside }: HeaderProps) {
   return (
     <header
       style={{ height: headerHeight }}
@@ -22,7 +23,7 @@ export function Header({ children, headerHeight }: HeaderProps) {
         <CurrentUser />
       </div>
       <ToogleMode />
-      <button onClick={() => console.log("Open Menu")}>
+      <button onClick={onToggleAside}>
         <VerticalDots className="w-6" />
       </button>
     </header>
