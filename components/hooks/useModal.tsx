@@ -1,7 +1,6 @@
-import { useCallback } from "react"
+import { useCallback, FC } from "react"
 import { generateCryptoId } from "../utils/generateCryptoId";
 import { useModalStore } from "./useModalStore";
-import { FC } from "react";
 
 type ModalProps = {
     component: FC,

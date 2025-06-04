@@ -6,9 +6,10 @@ type AsideProps = {
   isOpen : boolean
 };
 
-export function Aside({ asideContent, isOpen = false }: AsideProps) {
+export function Aside({ asideContent, isOpen = false}: AsideProps) {
   return (
-    <aside  className={clsx(!isOpen && "hidden","z-40 p-4 fixed right-0 top w-fit h-screen shadow-l shadow-md shadow-lightGray backdrop-blur-md")}>
+    <aside  
+    className={clsx(!isOpen && "hidden","z-40 p-4 fixed right-0 top w-fit h-screen shadow-l shadow-md shadow-lightGray backdrop-blur-md")}>
   
         {asideContent}
 

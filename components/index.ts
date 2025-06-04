@@ -16,6 +16,7 @@ export * from "./hooks/useAuth";
 export * from "./hooks/useInput"
 //Modals
 export * from "./modals/ModalProvider";
+export * from "./modals/ModalWrapper";
 //Toast
 export * from "./toast/Toast_Container";
 export * from "./toast/useToast";
