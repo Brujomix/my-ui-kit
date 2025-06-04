@@ -22,7 +22,6 @@ export function Button({
       disabled={disabled}
       onClick={onClick}
       className={clsx(disabled && "opacity-40","grid place-items-center p-2 border-2 border-deepBlue rounded-md hover:opacity-70 transition-opacity duration-300 backdrop-blur-md", className)}
-      className={clsx("grid place-items-center p-1 border-2 border-deepBlue rounded-md hover:opacity-70 transition-opacity duration-300 backdrop-blur-md", className)}
     >
       {children}
     </button>
