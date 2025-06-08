@@ -15,7 +15,7 @@ export function Header({ children, headerHeight, onToggleAside }: HeaderProps) {
     <header
       style={{ height: headerHeight }}
       className=
-      "z-50 fixed top-0 left-0 w-full p-4 flex justify-between items-center shadow-md shadow-smokeWhite backdrop-blur-md"
+      "z-40 fixed top-0 left-0 w-full p-4 flex justify-between items-center shadow-md shadow-smokeWhite backdrop-blur-md"
     >
       <Brand />
       <div>

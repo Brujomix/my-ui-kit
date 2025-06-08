@@ -2,17 +2,19 @@ import { FC } from 'react'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-type Modal = {
+type Modal<T = any> = {
   modalId: string
-  component: FC
-  props?: Record<string, any>
+  component: FC<T>
+  props?: T
 }
 
 type ModalState = {
   modals: Modal[]
-  open: (modal: Modal) => void
+  open: <T>(modal: Modal<T>) => void
   close: (modalId: string) => void
   closeAll: () => void
+  hasHydrated: boolean
+  setHasHydrated: (value: boolean) => void
 }
 
 export const useModalStore = create<ModalState>()(
@@ -26,9 +28,14 @@ export const useModalStore = create<ModalState>()(
           modals: state.modals.filter((m) => m.modalId !== modalId),
         })),
       closeAll: () => set({ modals: [] }),
+      hasHydrated: false,
+      setHasHydrated: (value) => set({ hasHydrated: value }),
     }),
     {
       name: 'modal-storage',
+      onRehydrateStorage: () => (state) => {
+        state?.setHasHydrated(true);
+      },
     }
   )
 );

@@ -1,3 +1,6 @@
+//Interfaces
+export * from "./interfaces/Ires";
+
 //buttons
 export * from "./tags/Button";
 //sections
@@ -14,9 +17,10 @@ export * from "./hooks/useModalStore";
 export * from "./hooks/useUsersStorage";
 export * from "./hooks/useAuth";
 export * from "./hooks/useInput"
+export * from "./hooks/useSidebarStorage"
 //Modals
 export * from "./modals/ModalProvider";
-export * from "./modals/ModalWrapper";
+export * from "./modals/ContentModalConfirm";
 //Toast
 export * from "./toast/Toast_Container";
 export * from "./toast/useToast";
@@ -30,6 +34,7 @@ export * from "./user/CurrentUser"
 export * from "./badge/Badge"
 //utils
 export * from "./utils/generateCryptoId"
+export * from "./utils/QrLector"
 //forms
 export * from "./forms/LoginForm"
 //Tags
@@ -39,6 +44,12 @@ export * from "./tags/FormFiled"
 export * from "./tags/Brand"
 //Firebase
 export * from "../firebase/firebaseConfig"
+//Tables
+export * from "./tables/Table_Dinamic"
+//Loaders
+export * from "./loaders/Loader_Text"
+//Errors
+export * from "./errors/Error_Message"
 
 
 

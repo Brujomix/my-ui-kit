@@ -2,13 +2,13 @@ import { useCallback, FC } from "react"
 import { generateCryptoId } from "../utils/generateCryptoId";
 import { useModalStore } from "./useModalStore";
 
-type ModalProps = {
-    component: FC,
-    props?: Record<string, any>
+type ModalProps<T> = {
+    component: FC<T>,
+    props?: T
     callback ? : ()=>void
 }
 
-export function useModals({ component, props, callback }: ModalProps) {
+export function useModals<T>({ component, props, callback }: ModalProps<T>) {
 
     const newModalId = generateCryptoId()
 

@@ -102,7 +102,7 @@ export function LoginForm() {
       {formError && <p className="text-red-500 text-center text-sm italic">{formError}</p>}
 
       <Button type="submit" disabled={loading}>
-        {loading ? <p>"Ingresando..."</p> : <p>"Ingresar"</p>}
+        {loading ? <p>Ingresando...</p> : <p>Ingresar</p>}
       </Button>
     </form>
 
