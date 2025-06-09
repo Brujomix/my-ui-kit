@@ -16,7 +16,6 @@ export * from "./hooks/useModal";
 export * from "./hooks/useModalStore";
 export * from "./hooks/useUsersStorage";
 export * from "./hooks/useAuth";
-export * from "./hooks/useInput"
 export * from "./hooks/useSidebarStorage"
 //Modals
 export * from "./modals/ModalProvider";
@@ -42,6 +41,8 @@ export * from "./tags/Button"
 export * from "./tags/Input"
 export * from "./tags/FormFiled"
 export * from "./tags/Brand"
+export * from "./tags/Select_Input"
+export * from "./tags/Input_Password"
 //Firebase
 export * from "../firebase/firebaseConfig"
 //Tables
