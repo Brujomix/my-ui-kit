@@ -1,7 +1,6 @@
 //Interfaces
 export * from "./interfaces/Ires";
 export * from "./interfaces/IModal";
-
 //buttons
 export * from "./tags/Button";
 //sections
@@ -35,6 +34,7 @@ export * from "./badge/Badge"
 //utils
 export * from "./utils/generateCryptoId"
 export * from "./utils/QrLector"
+export * from "./utils/parseDate"
 //forms
 export * from "./forms/LoginForm"
 //Tags
