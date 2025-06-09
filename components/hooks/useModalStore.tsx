@@ -17,25 +17,13 @@ type ModalState = {
   setHasHydrated: (value: boolean) => void
 }
 
-export const useModalStore = create<ModalState>()(
-  persist(
-    (set) => ({
-      modals: [],
-      open: (modal) =>
-        set((state) => ({ modals: [...state.modals, modal] })),
-      close: (modalId) =>
-        set((state) => ({
-          modals: state.modals.filter((m) => m.modalId !== modalId),
-        })),
-      closeAll: () => set({ modals: [] }),
-      hasHydrated: false,
-      setHasHydrated: (value) => set({ hasHydrated: value }),
-    }),
-    {
-      name: 'modal-storage',
-      onRehydrateStorage: () => (state) => {
-        state?.setHasHydrated(true);
-      },
-    }
-  )
-);
+export const useModalStore = create<ModalState>()((set) => ({
+  modals: [],
+  open: (modal) => set((state) => ({ modals: [...state.modals, modal] })),
+  close: (modalId) => set((state) => ({
+    modals: state.modals.filter((m) => m.modalId !== modalId),
+  })),
+  closeAll: () => set({ modals: [] }),
+  hasHydrated: true,
+  setHasHydrated: () => {},
+}));

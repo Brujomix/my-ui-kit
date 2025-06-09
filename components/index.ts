@@ -1,5 +1,6 @@
 //Interfaces
 export * from "./interfaces/Ires";
+export * from "./interfaces/IModal";
 
 //buttons
 export * from "./tags/Button";
