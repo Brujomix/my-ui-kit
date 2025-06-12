@@ -44,6 +44,7 @@ export * from "./tags/FormFiled"
 export * from "./tags/Brand"
 export * from "./tags/Select_Input"
 export * from "./tags/Input_Password"
+export * from "./tags/Input_Search"
 //Firebase
 export * from "../firebase/firebaseConfig"
 //Tables

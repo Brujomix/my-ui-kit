@@ -18,3 +18,4 @@ export * from "./EyesOpen";
 export * from "./EyesClose";
 export * from "./VerticalDots";
 export * from "./PerfilUser";
+export * from "./Magnifying_Glass";
