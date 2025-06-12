@@ -6,7 +6,7 @@ import { Brand } from "../tags/Brand";
 
 type HeaderProps = {
   children?: ReactNode
-  headerHeight: number
+  headerHeight?: number
   onToggleAside : ()=>void
 };
 
@@ -15,7 +15,7 @@ export function Header({ children, headerHeight, onToggleAside }: HeaderProps) {
     <header
       style={{ height: headerHeight }}
       className=
-      "z-40 fixed top-0 left-0 w-full p-4 flex justify-between items-center shadow-md shadow-smokeWhite backdrop-blur-md"
+      "z-50 fixed border-b-2 border-darkGray top-0 w-full p-4 flex justify-between items-center backdrop-blur-md"
     >
       <Brand />
       <div>

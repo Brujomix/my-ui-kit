@@ -5,11 +5,12 @@ const version = pkg.version;
 
 type FooterProps = {
     children? : ReactNode
+    footerHeight: number
 };
 
-export function Footer({children}: FooterProps) {
-  return <footer className="fixed bottom-1 right-3 w-full p-2 z-50 bg-black">
+export function Footer({children, footerHeight}: FooterProps) {
+  return <footer style={{height:footerHeight}} className="z-50 w-full p-2 fixed bottom-0 bg-darkBlack">
     {children}
-    <p className="text-right text-xs italic">version : {version} </p>
+    <p className=" text-right text-xs italic">version : {version} </p>
   </footer>;
 }

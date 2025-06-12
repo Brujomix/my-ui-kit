@@ -1,7 +1,8 @@
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { ModalProvider } from "../modals/ModalProvider";
 import { ToastContainer } from "react-toastify";
 import { Aside, Header, Footer, useSidebarStorage } from "../../components";
+import { Main } from "../sections/Main";
 
 type GeneralLayoutProps = {
   children: ReactNode
@@ -10,21 +11,22 @@ type GeneralLayoutProps = {
 
 export function GeneralLayout({ children, asideContent }: GeneralLayoutProps) {
 
-  const {isOpen, openCloseSidebar} = useSidebarStorage()
+  const { isOpen, openCloseSidebar } = useSidebarStorage()
 
   const headerHeigth = 60
+  const footerHeight = 60
 
   return (
-    <div className="bg-darkBlack w-full h-screen text-smokeWhite">
+    <div className="min-w-screen min-h-screen bg-darkBlack text-smokeWhite">
       <ModalProvider />
       <ToastContainer />
-      <div className="" style={{ paddingTop: headerHeigth }}>
+      <div className="grid grid-cols-1">
         <Header headerHeight={headerHeigth} onToggleAside={openCloseSidebar} />
-        <Aside asideContent={asideContent} isOpen={isOpen}/>
-        <Footer />
-        <div className="p-4">
+        <Aside headerHeigth={headerHeigth} asideContent={asideContent} isOpen={isOpen} />
+        <Footer footerHeight={footerHeight}/>
+        <Main footerHeight={footerHeight} headerHeight={headerHeigth}>
           {children}
-        </div>
+        </Main>
       </div>
     </div >
   );
