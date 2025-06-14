@@ -9,7 +9,7 @@ type MainProps = {
 export function Main({children, headerHeight, footerHeight}: MainProps) {
   return (
     <div 
-    style={{ paddingTop: headerHeight, paddingBottom : footerHeight}} 
+    style={{ paddingTop: headerHeight && headerHeight + 10 , paddingBottom : footerHeight}} 
     className="w-full p-2">
         {children}
     </div>
