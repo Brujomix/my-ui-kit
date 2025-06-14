@@ -1,6 +1,8 @@
 //Interfaces
 export * from "./interfaces/Ires";
 export * from "./interfaces/IModal";
+//Avatar
+export * from "./avatars/Avatar_Circle";
 //buttons
 export * from "./tags/Button";
 //sections
@@ -45,6 +47,7 @@ export * from "./tags/Brand"
 export * from "./tags/Select_Input"
 export * from "./tags/Input_Password"
 export * from "./tags/Input_Search"
+export * from "./tags/RedirectLink"
 //Firebase
 export * from "../firebase/firebaseConfig"
 //Tables
