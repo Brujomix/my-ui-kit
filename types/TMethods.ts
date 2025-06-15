@@ -1,1 +1,1 @@
-export type TMethods = "POST" | "PUT"
+export type TMethods = "POST" | "PUT" | "GET" | "DELETE"

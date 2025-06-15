@@ -1,7 +1,5 @@
-import { IMethods } from "./IMethods";
 import { IModals } from "./IModal";
 
-export interface IForms extends IModals, IMethods {
-  initialData?: unknown;
+export interface IForms extends IModals {
   isEdit?: boolean;
 }

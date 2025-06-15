@@ -49,3 +49,5 @@ export * from "./tables/Table_Dinamic";
 export * from "./loaders/Loader_Text";
 //Errors
 export * from "./errors/Error_Message";
+//QR
+export * from "./qr/QrLector";
