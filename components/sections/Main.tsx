@@ -1,17 +1,21 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 
 type MainProps = {
-    children ? : ReactNode
-    headerHeight ? : number
-    footerHeight ? : number
-}
+  children?: ReactNode;
+  headerHeight?: number;
+  footerHeight?: number;
+};
 
-export function Main({children, headerHeight, footerHeight}: MainProps) {
+export function Main({ children, headerHeight, footerHeight }: MainProps) {
   return (
-    <div 
-    style={{ paddingTop: headerHeight && headerHeight + 10 , paddingBottom : footerHeight}} 
-    className="w-full p-2">
-        {children}
+    <div
+      style={{
+        marginTop: headerHeight && headerHeight + 10,
+        marginBottom: footerHeight,
+      }}
+      className="h-screen rounded-t-md bg-darkBlue mx-4 p-2"
+    >
+      {children}
     </div>
-  )
+  );
 }

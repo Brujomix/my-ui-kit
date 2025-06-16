@@ -1,5 +1,7 @@
+import { TMethods } from "../types";
 import { IModals } from "./IModal";
 
 export interface IForms extends IModals {
-  isEdit?: boolean;
+  initialdata?: Record<string, unknown>;
+  method: TMethods;
 }

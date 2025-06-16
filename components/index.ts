@@ -18,7 +18,7 @@ export * from "./hooks/useAuth";
 export * from "./hooks/useSidebarStorage";
 //Modals
 export * from "./modals/ModalProvider";
-export * from "./modals/ContentModalConfirm";
+export * from "./modals/ContentDeleteModal";
 //Toast
 export * from "./toast/Toast_Container";
 export * from "./toast/useToast";

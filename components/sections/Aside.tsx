@@ -11,7 +11,7 @@ export function Aside({ asideContent, isOpen, headerHeigth }: AsideProps) {
   return (
     <aside 
     style={{paddingTop : headerHeigth}} 
-    className={clsx(!isOpen && "hidden","z-40 p-4 fixed right-0 w-fit h-screen shadow-l shadow-md shadow-lightGray backdrop-blur-md")}>
+    className={clsx(!isOpen && "hidden","z-40 p-4 fixed right-0 w-fit h-screen shadow-l shadow-md shadow-lightGray backdrop-blur-2xl")}>
         {asideContent}
 
     </aside>
