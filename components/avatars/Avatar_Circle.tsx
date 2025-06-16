@@ -9,7 +9,7 @@ type AvatarClientProps<T> = {
   keyField: keyof T;
   imageUrl?: keyof T;
   url: string;
-  stateProp ?: T
+  stateProp?: T;
 };
 
 export function Avatar_Circle<T>({
@@ -17,16 +17,23 @@ export function Avatar_Circle<T>({
   keyField,
   url,
   imageUrl,
-  stateProp
+  stateProp,
 }: AvatarClientProps<T>) {
-  
   return (
-    <RedirectLink stateProps={stateProp} url={url} className="rounded-full w-20 h-20 bg-darkBlue">
-      {imageUrl ? (
-        <img src={String(user[imageUrl])} alt="Imagen Perfil usuario" />
-      ) : (
-        <span className="text-2xl">{filterStringText(String(user[keyField]))}</span>
-      )}
+    <RedirectLink
+      stateProps={stateProp}
+      url={url}
+      className="rounded-full w-14 h-14 bg-lightGray text-darkBlue"
+    >
+     
+        {imageUrl ? (
+          <img src={String(user[imageUrl])} alt="Imagen Perfil usuario" />
+        ) : (
+          <span className="text-xl font-bold">
+            {filterStringText(String(user[keyField]))}
+          </span>
+        )}
+      
     </RedirectLink>
   );
 }
