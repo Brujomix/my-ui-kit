@@ -38,13 +38,16 @@ export * from "./utils/parseDate"
 //forms
 export * from "./forms/LoginForm"
 //Tags
-export * from "./tags/Button"
-export * from "./tags/Input"
-export * from "./tags/FormFiled"
-export * from "./tags/Brand"
-export * from "./tags/Select_Input"
-export * from "./tags/Input_Password"
-export * from "./tags/Input_Search"
+export * from "./tags/Button";
+export * from "./tags/Button";
+export * from "./tags/textArea";
+export * from "./tags/Input";
+export * from "./tags/FormFiled";
+export * from "./tags/Brand";
+export * from "./tags/Select_Input";
+export * from "./tags/Input_Password";
+export * from "./tags/Input_Search";
+export * from "./tags/RedirectLink";
 //Firebase
 export * from "../firebase/firebaseConfig"
 //Tables
