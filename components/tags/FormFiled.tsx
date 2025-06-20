@@ -7,10 +7,10 @@ type FormFiledProps = {
 
 export function FormFiled({ error, children }: FormFiledProps) {
   return (
-    <div className="grid space-y-2">
+    <div className="grid space-y-2 relative">
       {children}
       {error && (
-        <p className="text-red-500 text-center italic text-xs">{error}</p>
+        <p className="absolute bottom-0 right-1 text-red-500 text-center italic text-xs">{error}</p>
       )}
     </div>
   )

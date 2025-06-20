@@ -34,6 +34,8 @@ export * from "./badge/Badge";
 export * from "./forms/LoginForm";
 //Tags
 export * from "./tags/Button";
+export * from "./tags/Button";
+export * from "./tags/textArea";
 export * from "./tags/Input";
 export * from "./tags/FormFiled";
 export * from "./tags/Brand";
