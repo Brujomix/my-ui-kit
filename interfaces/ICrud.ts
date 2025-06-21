@@ -1,8 +1,8 @@
 import { TMethods } from "../types";
 
-export interface ICrud {
+export interface ICrud<T> {
   apiUrl: string;
-  data? : Record<string, unknown>
+  data? : T
   id?: string
   endpointName: string;
   method: TMethods;

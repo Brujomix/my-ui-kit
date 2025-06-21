@@ -3,7 +3,6 @@ import { Cross } from "../icons"
 import { Button } from "../tags/Button"
 import { useEffect } from "react"
 
-
 export function ModalProvider() {
 
   const { modals, close } = useModalStore();
@@ -35,7 +34,7 @@ export function ModalProvider() {
                 >
                   <Cross className="w-4 text-black" />
                 </Button>
-                <div className="mt-8">
+                <div className="mt-4">
                   <Component {...props} />
                 </div>
 

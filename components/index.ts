@@ -18,7 +18,6 @@ export * from "./hooks/useAuth";
 export * from "./hooks/useSidebarStorage";
 //Modals
 export * from "./modals/ModalProvider";
-export * from "./modals/ContentDeleteModal";
 //Toast
 export * from "./toast/Toast_Container";
 export * from "./toast/useToast";
@@ -47,6 +46,8 @@ export * from "./tags/RedirectLink";
 export * from "../firebase/firebaseConfig";
 //Tables
 export * from "./tables/Table_Dinamic";
+//Lists
+export * from "./lists/Detail_List";
 //Loaders
 export * from "./loaders/Loader_Text";
 //Errors

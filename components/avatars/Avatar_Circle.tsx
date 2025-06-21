@@ -9,7 +9,7 @@ type AvatarClientProps<T> = {
   keyField: keyof T;
   imageUrl?: keyof T;
   url: string;
-  stateProp?: string;
+  stateProp?: T;
 };
 
 export function Avatar_Circle<T>({

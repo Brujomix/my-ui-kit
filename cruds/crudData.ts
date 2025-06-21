@@ -1,17 +1,17 @@
 import { ICrud } from "../interfaces/ICrud";
 
-export const crudData = async ({
+export const crudData = async <T> ({
   apiUrl,
   endpointName,
   data,
   method,
-}: ICrud) => {
+}: ICrud<T>) => {
   switch (method) {
     case "GET":
       try {
         const res = await fetch(`${apiUrl}/api/${endpointName}`, {
           method: "GET",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json" }
         });
 
         if (!res.ok) {
@@ -30,7 +30,7 @@ export const crudData = async ({
         const res = await fetch(`${apiUrl}/api/${endpointName}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+          body: JSON.stringify({data: data}),
         });
 
         if (!res.ok) {

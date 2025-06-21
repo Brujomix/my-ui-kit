@@ -1,15 +1,12 @@
 import { Trash } from "../icons";
 
-
 type TableDinamicProps<T> = {
   data?: T[] | null;
-  titleModal: string;
 };
 
 export function Table_Dinamic<T extends object>({
   data,
 }: TableDinamicProps<T>) {
-
   return (
     <div className="overflow-x-auto">
       {data?.length === 0 ? (
@@ -53,8 +50,7 @@ export function Table_Dinamic<T extends object>({
                   ))}
                   <td>
                     <div className="flex justify-center items-center">
-                      <button onClick={()=> console.log("Click")
-                      }>
+                      <button onClick={() => console.log(JSON.stringify(row))}>
                         <Trash className="w-5 md:w-7 text-red-600" />
                       </button>
                     </div>
