@@ -1,4 +1,4 @@
-export type ModalsProps = {
+export interface IModals  {
     close: () => void
     callback: ()=> void
 }

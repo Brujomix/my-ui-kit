@@ -1,9 +1,5 @@
-import { useNavigate } from "react-router-dom";
-import { Button } from "./Button";
+import { RedirectLink } from "./RedirectLink";
 
 export function Brand() {
-    const navigate = useNavigate()
-    return (
-        <Button onClick={() => navigate("/")}>Brand</Button>
-    )
+  return <RedirectLink url="/">Brand</RedirectLink>;
 }
