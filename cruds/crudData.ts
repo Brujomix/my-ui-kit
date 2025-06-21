@@ -4,7 +4,6 @@ export const crudData = async ({
   apiUrl,
   endpointName,
   data,
-  id,
   method,
 }: ICrud) => {
   switch (method) {
@@ -46,10 +45,10 @@ export const crudData = async ({
 
     case "PUT":
       try {
-        const res = await fetch(`${apiUrl}/api/${endpointName}/${id}`, {
+        const res = await fetch(`${apiUrl}/api/${endpointName}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+          body: JSON.stringify({ data: data }),
         });
 
         if (!res.ok) {
@@ -64,10 +63,10 @@ export const crudData = async ({
 
     case "DELETE":
       try {
-        const res = await fetch(`${apiUrl}/api/${endpointName}/${id}`, {
+        const res = await fetch(`${apiUrl}/api/${endpointName}`, {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+          body: JSON.stringify({ data: data }),
         });
 
         if (!res.ok) {
