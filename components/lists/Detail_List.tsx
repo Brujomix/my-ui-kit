@@ -3,14 +3,23 @@ type DetailListProps<T> = {
 };
 
 export function Detail_List<T>({ data }: DetailListProps<T>) {
+
+  console.log(data);
+  
   return (
     <>
-      {data &&
-        data.map((v, index) => (
-          <div key={index}>
-            <span>{String(v)}</span>
+      {data && (
+        <>
+          <div>
+
           </div>
-        ))}
+          <div className="grid grid-cols-1">
+            {data.map((v, index) =>
+             <span>{v.createAt}</span>
+            )}
+          </div>
+        </>
+      )}
     </>
   );
 }
