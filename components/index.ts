@@ -46,11 +46,11 @@ export * from "./tags/RedirectLink";
 export * from "../firebase/firebaseConfig";
 //Tables
 export * from "./tables/Table_Dinamic";
-//Lists
-export * from "./lists/Detail_List";
+
 //Loaders
 export * from "./loaders/Loader_Text";
 //Errors
 export * from "./errors/Error_Message";
 //QR
 export * from "./qr/QrLector";
+export * from "./qr/GeneratorQr";
