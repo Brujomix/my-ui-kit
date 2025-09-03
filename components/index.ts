@@ -1,56 +1,53 @@
 //Avatar
-export * from "./avatars/Avatar_Circle";
+export * from "./user/avatar-circle";
 //buttons
-export * from "./tags/Button";
+export * from "./tags/button";
 //sections
-export * from "./sections/Header";
-export * from "./sections/Aside";
-export * from "./sections/NavBar";
-export * from "./sections/Footer";
-export * from "./sections/Menu";
+export * from "./sections/header";
+export * from "./sections/aside";
+export * from "./sections/nav-bar";
+export * from "./sections/footer";
+export * from "./sections/menu";
 //Layouts
-export * from "./layouts/GeneralLayout";
+export * from "./layouts/general-layout";
 //Hooks
 export * from "./hooks/useModal";
 export * from "./hooks/useModalStore";
 export * from "./hooks/useUsersStorage";
 export * from "./hooks/useAuth";
 export * from "./hooks/useSidebarStorage";
-//Modals
-export * from "./modals/ModalProvider";
 //Toast
-export * from "./toast/Toast_Container";
-export * from "./toast/useToast";
+export * from "./toast/toast-container";
+export * from "./toast/use-toast";
 //Icons
 export * from "./icons";
 //Toogle
-export * from "./toggles/ToogleMode";
+export * from "./toggles/toogle-mode";
 //user
-export * from "./user/CurrentUser";
+export * from "./user/current-user";
 //Badges
-export * from "./badge/Badge";
+export * from "./badge/badge";
 //forms
 export * from "./forms/LoginForm";
 //Tags
-export * from "./tags/Button";
-export * from "./tags/Button";
-export * from "./tags/textArea";
+export * from "./tags/button";
+export * from "./tags/button";
+export * from "./tags/text-area";
 export * from "./tags/Input";
-export * from "./tags/FormFiled";
-export * from "./tags/Brand";
-export * from "./tags/Select_Input";
-export * from "./tags/Input_Password";
-export * from "./tags/Input_Search";
-export * from "./tags/RedirectLink";
+export * from "./tags/brand";
+export * from "./tags/select-input";
+export * from "./tags/input-password";
+export * from "./tags/input-search";
+export * from "./tags/redirect-link";
 //Firebase
-export * from "../firebase/firebaseConfig";
+export * from "../firebase/firebase-config";
 //Tables
-export * from "./tables/Table_Dinamic";
+export * from "./tags/table-dinamic";
 
 //Loaders
-export * from "./loaders/Loader_Text";
+export * from "./loaders/loader-text";
 //Errors
-export * from "./errors/Error_Message";
+export * from "./errors/error-message";
 //QR
-export * from "./qr/QrLector";
-export * from "./qr/GeneratorQr";
+export * from "./qr/qr-lector";
+export * from "./qr/qr-generator";

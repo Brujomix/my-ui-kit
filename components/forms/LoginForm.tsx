@@ -1,13 +1,13 @@
 import { useAuth } from "../hooks/useAuth"
-import { Button } from "../tags/Button"
+import { Button } from "../tags/button"
 import { Input } from "../tags/Input"
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react"
-import { FormFiled } from "../tags/FormFiled"
+import { FormFiled } from "../tags/form-filed"
 import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form";
-import { Input_Password } from "../tags/Input_Password";
+import { Input_Password } from "../tags/input-password";
 
 const loginSchema = z.object({
   email: z.string().email("Correo Electronico inválido"),

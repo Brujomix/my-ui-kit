@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+@page {
+  size: auto;
+  margin: 0mm;
+  margin-top: 5mm;
+  margin-bottom: 5mm;
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar { /* El contenedor de la scrollbar. */
+    @apply w-1 h-1 rounded-full;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track { /* El área de fondo donde se desplaza la scrollbar. */
+    @apply bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb { /* La parte de la scrollbar que se puede arrastrar. */
+    border: 2px solid   ;
+    @apply bg-gray-500/30 rounded-full border-gray-900/30;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400/30; /* Color de la barra de desplazamiento al pasar el mouse por encima */
+  }
+
+  .no-arrow-input {
+    -moz-appearance: textfield; /* Firefox  (ocultar flechas de los input) */
+  }
+  .no-arrow-input::-webkit-inner-spin-button,
+  .no-arrow-input::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Chrome, Safari, Edge (ocultar flechas de los input) */
+    margin: 0;
+  }
+}

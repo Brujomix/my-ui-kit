@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import { ToogleMode } from "../toggles/ToogleMode";
-import { CurrentUser } from "../user/CurrentUser";
+import { ToogleMode } from "../toggles/toogle-mode";
+import { CurrentUser } from "../user/current-user";
 import { VerticalDots } from "../icons";
-import { Brand } from "../tags/Brand";
+import { Brand } from "../tags/brand";
 
 type HeaderProps = {
   children?: ReactNode

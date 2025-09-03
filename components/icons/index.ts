@@ -1,22 +1,27 @@
-export type IconProp = {
+export type IconProps = {
     className? : string
 }
 
-export * from "./HambuergueClose";
-export * from "./HamburguerOpen";
-export * from "./Trash";
-export * from "./Upload";
-export * from "./Download";
-export * from "./Setting";
-export * from "./Cross";
-export * from "./Sun";
-export * from "./Moon";
-export * from "./Camera";
-export * from "./QrCode";
-export * from "./Photo";
-export * from "./EyesOpen";
-export * from "./EyesClose";
-export * from "./VerticalDots";
-export * from "./PerfilUser";
-export * from "./Magnifying_Glass";
-export * from "./Edit";
+export * from "./hambuerguer-close-icon";
+export * from "./hamburguer-open-icon";
+export * from "./trash-icon";
+export * from "./upload-icon";
+export * from "./download-icon";
+export * from "./setting-icon";
+export * from "./cross-icon";
+export * from "./sun-icon";
+export * from "./moon-icon";
+export * from "./camera-icon";
+export * from "./qr-code-icon";
+export * from "./photo-icon";
+export * from "./eyes-open-icon";
+export * from "./eyes-close-icon";
+export * from "./vertical-dots-icon";
+export * from "./perfil-user-icon";
+export * from "./magnifying-glass-icon";
+export * from "./edit-icon";
+export * from "./plus-icon";
+export * from "./success-icon";
+export * from "./error-icon";
+export * from "./info-icon";
+export * from "./loading-icon";

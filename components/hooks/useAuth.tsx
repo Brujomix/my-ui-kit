@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Auth_Firebase } from "../../firebase/firebaseConfig";
+import { Auth_Firebase } from "../../firebase/firebase-config";
 import { useUsersStorage } from "./useUsersStorage"
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
