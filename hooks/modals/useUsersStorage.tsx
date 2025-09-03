@@ -1,9 +1,8 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
-import { User } from "firebase/auth";
 
 type UserApp = {
-    user : User
+    user : any
     rol?: string
 }
 

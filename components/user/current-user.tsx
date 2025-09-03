@@ -1,5 +1,4 @@
-import { useAuth } from "../hooks/useAuth";
-import { PerfilUser } from "../icons";
+import { useAuth } from "../../hooks";
 
 export function CurrentUser() {
 
@@ -14,7 +13,7 @@ export function CurrentUser() {
             {currentUser.user.photoURL
               ?
               <img src={currentUser.user.photoURL || ""} alt="Image Profile" />
-              : <PerfilUser />}
+              : <>A</>}
           </div>
        
             <p className="text-xs">{currentUser && currentUser.user.email}</p>

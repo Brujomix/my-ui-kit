@@ -1,9 +1,10 @@
 import clsx from 'clsx'
 import { useFormContext } from 'react-hook-form'
 import { FormField } from './form-field'
-import { ModalProps, useModals } from 'darkflow-ui/modals'
-import { CameraIcon, CrossIcon } from 'darkflow-ui/icons'
-import { QrLector } from 'darkflow-ui/components/qr-lector'
+import { useModals } from '../modals/use-modals'
+import { CameraIcon, CrossIcon } from '../icons'
+import { ModalProps } from '../modals'
+import { QrLector } from '../qr'
 
 interface Props {
   label?: string
@@ -86,14 +87,14 @@ function ModalQrReader ({ close, props: { callback, validation } }: ModalProps<M
       >
         <CrossIcon className='w-8 h-8' />
       </button>
-      <QrLector
+      {/* <QrLector
         onResult={(result) => {
           if (result) {
             handleResult(result)
           }          
         }}
         validation={validation}
-      />
+      /> */}
       <div className='w-screen h-auto aspect-square md:w-auto md:h-screen p-4 md:p-10 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2'>
         <div className='border-2 border-green-500/80 w-full h-full' />
       </div>

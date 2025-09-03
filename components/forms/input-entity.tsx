@@ -1,11 +1,10 @@
 import { FC, MouseEvent, useEffect, useState } from 'react'
-
 import { useFormContext } from 'react-hook-form'
 import { FormField } from './form-field'
 import { useDebouncedCallback } from 'use-debounce'
-import { Button } from '../components/button'
 import { CrossIcon, IconProps } from '../icons'
-import { Badge } from 'darkflow-ui/components/badge'
+import { Badge } from '../badge'
+import { Button } from '../tags'
 
 export type IInputEntityEntity = {
   labelTitle: string
@@ -168,8 +167,6 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
               <div>
                 <Button
                   onClick={handleSelectEntity(undefined)}
-                  size='sm'
-                  Icon={CrossIcon}
                   disabled={disabled}
                 >
                   Cambiar
@@ -197,8 +194,6 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
                   className='absolute right-2.5 bottom-1.5'
                 >
                   <Button
-                    size='sm'
-                    Icon={extraButton.Icon}
                     // eslint-disable-next-line react/jsx-handler-names
                     onClick={extraButton.onClick}
                     disabled={disabled}

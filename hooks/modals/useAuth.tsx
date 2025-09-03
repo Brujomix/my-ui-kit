@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+/* import { useNavigate } from "react-router-dom";
 import { Auth_Firebase } from "../../firebase/firebase-config";
 import { useUsersStorage } from "./useUsersStorage"
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
@@ -45,4 +45,4 @@ export function useAuth() {
 
 
     return { LoginFirebase, logOutFirebase, currentUser }
-}
+} */

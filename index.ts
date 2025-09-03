@@ -7,9 +7,6 @@ export * from './utils';
 //Interfaces
 export * from './interfaces';
 
-//Firebase
-export * from './firebase';
-
 //Layouts
 export * from './layouts';
 
