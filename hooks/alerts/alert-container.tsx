@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import clsx from 'clsx'
-import { Colors } from '../tools/colors'
+import { Colors } from '../../components/tools'
 
 interface PropsAlertContainer {
   children: ReactNode

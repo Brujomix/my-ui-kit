@@ -1,5 +1,5 @@
 import { Magnifying_Glass } from '../icons'
-import { Input } from './Input'
+import { Input } from './input'
 
 type InputSearchProps = {
     onChangeValue : (value : string)=>void

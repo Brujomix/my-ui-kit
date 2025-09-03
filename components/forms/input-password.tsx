@@ -2,8 +2,7 @@ import clsx from 'clsx'
 import { useFormContext } from 'react-hook-form'
 import { FormField } from './form-field'
 import { useState } from 'react'
-import { EyeIcon } from 'darkflow-ui/icons/eye'
-import { EyeOffIcon } from 'darkflow-ui/icons/eye-off'
+import { EyesCloseIcon, EyesOpenIcon } from '../icons'
 
 interface Props {
   label?: string
@@ -42,8 +41,8 @@ export function InputPassword ({ name, label, convertEmptyToUndefined = true, pl
       >
         {
           showPassword
-            ? <EyeOffIcon className='w-6 h-6 text-gray-500 dark:text-gray-400' />
-            : <EyeIcon className='w-6 h-6 text-gray-500 dark:text-gray-400' />
+            ? <EyesCloseIcon className='w-6 h-6 text-gray-500 dark:text-gray-400' />
+            : <EyesOpenIcon className='w-6 h-6 text-gray-500 dark:text-gray-400' />
         }
       </button>
     </FormField>

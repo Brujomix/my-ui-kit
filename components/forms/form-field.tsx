@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import { Sizes } from 'darkflow-ui/tools/sizes'
 import { ReactNode } from 'react'
+import { Sizes } from '../tools'
 
 interface Props {
   label?: string

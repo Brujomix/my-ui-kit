@@ -1,8 +1,6 @@
 import { ReactNode } from "react";
-import { ModalProvider } from "../modals/ModalProvider";
 import { ToastContainer } from "react-toastify";
-import { Aside, Header, Footer, useSidebarStorage } from "../../components";
-import { Main } from "../sections/main";
+import { Main } from "../components/sections/main";
 
 type GeneralLayoutProps = {
   children: ReactNode

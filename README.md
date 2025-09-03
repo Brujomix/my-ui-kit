@@ -8,26 +8,23 @@ Componentes reutilizables de UI en React + TypeScript con clases Tailwind.
 
 1. Agrega el subrepo:
 
-   ```bash
-
-   git submodule add https://github.com/Brujomix/my-ui-kit.git lib/ui-kit
-
-   ```
+```bash
+  git submodule add https://github.com/Brujomix/my-ui-kit.git 
+```
 
 2. En Repositorio Principal agrega estas lines en tsconfig.json
 
 ```json
   "baseUrl": ".",
   "paths": {
-    "@my-ui-kit": ["lib/ui-kit/src/index.ts"],
-    "@my-ui-kit/*": ["lib/ui-kit/*"]
+    "@my-ui-kit": ["/my-ui-kit"]
   }
 ```
 
 3. Una Vez instalado e inicializado tailwind anñade estas lineas a tailwindconfig.js
 
    ```js
-   import uiKitTailwindPreset from "./lib/ui-kit/tailwind.preset.js"
+   import uiKitTailwindPreset from "./my-ui-kit/tailwind-config.js"
 
    /** @type {import('tailwindcss').Config} */
    module.exports = {
@@ -36,7 +33,7 @@ Componentes reutilizables de UI en React + TypeScript con clases Tailwind.
        './app/**/*.{ts,tsx}',
 
        // Ruta a tu submódulo UI Kit:
-       './lib/ui-kit/**/*.{ts,tsx,js,jsx}', ✔ esta línea a la ruta de submodule
+       './ui-kit/**/*.{ts,tsx,js,jsx}', ✔ esta línea a la ruta de submodule
 
      ],
      theme: {
@@ -48,13 +45,11 @@ Componentes reutilizables de UI en React + TypeScript con clases Tailwind.
 
 4. En Layout principal de la app importar y renderizar;
 ```js
-  import "@my-ui-kit/global.css";
-  import { ProviderRedux } from "@my-ui-kit/redux";
-  import { GlobalModalManager, Toast_Container } from "@/lib/ui-kit";
+  import "@my-ui-kit/main.css";
+  import { GlobalModalManager, Toast_Container } from "@/my-ui-kit";
 
   return (
     <html lang="en">
-      <ProviderRedux>
         <body>
           <main>
             {children}
@@ -62,7 +57,6 @@ Componentes reutilizables de UI en React + TypeScript con clases Tailwind.
             <Toast_Container/>
           </main>
         </body>
-      </ProviderRedux>
     </html>
   );
 ```
@@ -70,7 +64,6 @@ Componentes reutilizables de UI en React + TypeScript con clases Tailwind.
 5. En App anfitrion instalar dependecias:
 
 ```bash
-  pnpm i @reduxjs/toolkit react-redux
   pnpm i react-toastify
 ```
 

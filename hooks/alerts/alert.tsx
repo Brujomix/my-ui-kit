@@ -1,10 +1,9 @@
-import { AlertProps } from '.'
-import { AlertContainer } from './alert-container'
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
-import { Colors } from '../tools/colors'
-import { Sizes } from '../tools/sizes'
-import { CrossIcon, InfoIcon, LoadingIcon, SuccessIcon, ErrorIcon } from '../icons'
+import { AlertProps } from '.'
+import { Colors, Sizes } from '../../components/tools'
+import { AlertContainer } from './alert-container'
+import { CrossIcon, ErrorIcon, InfoIcon, LoadingIcon, SuccessIcon } from '../../components'
 
 interface AlertAsyncProps {
   close: () => void

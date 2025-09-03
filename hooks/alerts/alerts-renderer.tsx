@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom'
-import { useAlerts } from '.'
+import { useAlerts } from '../../alerts'
 import { useEffect } from 'react'
 import { Alert } from './alert'
 

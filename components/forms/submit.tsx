@@ -1,10 +1,8 @@
 import clsx from 'clsx'
 import { useFormContext } from 'react-hook-form'
 import { FC } from 'react'
-import { Sizes } from 'darkflow-ui/tools/sizes'
-import { Colors } from 'darkflow-ui/tools/colors'
-import { IconProps } from 'darkflow-ui/icons'
-import { LoadingIcon } from 'darkflow-ui/icons/loading'
+import { IconProps, LoadingIcon } from '../icons'
+import { Colors, Sizes } from '../tools'
 
 interface SubmitProps {
   label: string

@@ -25,3 +25,5 @@ export * from "./success-icon";
 export * from "./error-icon";
 export * from "./info-icon";
 export * from "./loading-icon";
+export * from "./alert-icon";
+export * from "./dots-icon";

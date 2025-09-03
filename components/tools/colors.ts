@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 export enum Colors {
   primary = 'primary',
   secondary = 'secondary',

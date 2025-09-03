@@ -1,4 +1,4 @@
-import { Sizes } from '../tools/sizes'
+import { Sizes } from '../../components/tools'
 
 export * from './use-alerts'
 export * from './alerts-renderer'

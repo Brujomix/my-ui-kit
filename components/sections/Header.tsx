@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import { ToogleMode } from "../toggles/toogle-mode";
 import { CurrentUser } from "../user/current-user";
-import { VerticalDots } from "../icons";
 import { Brand } from "../tags/brand";
+import { ToogleMode } from "../toogle-mode";
+import { DotsIcon } from "../icons";
 
 type HeaderProps = {
   children?: ReactNode
@@ -24,7 +24,7 @@ export function Header({ children, headerHeight, onToggleAside }: HeaderProps) {
       </div>
       <ToogleMode />
       <button onClick={onToggleAside}>
-        <VerticalDots className="w-6" />
+        <DotsIcon className="w-6" />
       </button>
     </header>
   );

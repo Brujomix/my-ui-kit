@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { useFormContext } from 'react-hook-form'
 import { FormField } from './form-field'
 import { FC, ReactNode } from 'react'
-import { IconProps } from 'darkflow-ui/icons'
+import { IconProps } from '../icons'
 
 interface Props {
   label?: string
