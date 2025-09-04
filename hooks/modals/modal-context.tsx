@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, FC, ReactNode, useCallback } from 'react';
+import { createContext, useContext, useState, FC, ReactNode, useCallback } from 'react';
 
 export type Modal<T = any> = {
   modalId: string;
