@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { clsx } from "clsx";
+import { Sizes } from "../tools";
 
 type ButtonProps = {
   children: ReactNode;
@@ -7,6 +8,7 @@ type ButtonProps = {
   className?: string;
   type?: "button" | "submit";
   disabled?: boolean;
+  size?: keyof typeof Sizes;
 }
 
 export function Button({
@@ -14,6 +16,7 @@ export function Button({
   onClick,
   className,
   type = "button",
+  size = "md",
   disabled = false,
 }: ButtonProps) {
   return (
@@ -21,7 +24,14 @@ export function Button({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={clsx(disabled && "opacity-40","grid place-items-center px-2 py-1 border-2 border-deepBlue rounded-md hover:opacity-70 transition-opacity duration-300 backdrop-blur-md", className)}
+      className={clsx(disabled 
+        && "opacity-40",
+        {'text-sm': size === 'sm',
+          'text-md': size === 'md',
+          'text-lg': size === 'lg',
+          'text-xl': size === 'xl',
+        },
+        "grid place-items-center px-2 py-1 border-2 border-deepBlue rounded-md hover:opacity-70 transition-opacity duration-300 backdrop-blur-md", className)}
     >
       {children}
     </button>

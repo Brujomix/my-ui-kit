@@ -1,17 +1,17 @@
-import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useState, FC, ReactNode, useCallback } from 'react';
 
-type Modal<T = any> = {
+export type Modal<T = any> = {
   modalId: string;
-  component: React.FC<T>;
+  component: FC<T>;
   props?: T;
 };
 
-type ModalContextType = {
+interface ModalContextType {
   modals: Modal[];
   open: <T>(modal: Modal<T>) => void;
   close: (modalId: string) => void;
   closeAll: () => void;
-};
+}
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
@@ -37,8 +37,8 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export function useModalStore() {
+export function useModalContext() {
   const ctx = useContext(ModalContext);
-  if (!ctx) throw new Error('useModalStore must be used within a ModalProvider');
+  if (!ctx) throw new Error('useModalContext must be used within a ModalProvider');
   return ctx;
 }

@@ -1,9 +1,8 @@
 import clsx from 'clsx'
-import { IconProps } from 'darkflow-ui/icons'
-import { DotsIcon } from 'darkflow-ui/icons/dots'
-import { Sizes } from 'darkflow-ui/tools/sizes'
 import { FC, ReactNode, RefObject, useEffect, useRef, useState } from 'react'
 import { Link, NavigateOptions, To } from 'react-router-dom'
+import { Sizes } from '../tools'
+import { DotsIcon, IconProps } from '../icons'
 
 interface PropsDropdown {
   size?: Sizes

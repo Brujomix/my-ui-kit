@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button } from "./tags";
+import { Button } from "../tags";
 
-export function ToogleMode() {
+export function ToggleMode() {
   const [themeMode, setThemeMode] = useState(false);
 
   const toggleTheme = () => {

@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { EyesClose, EyesOpen } from "../icons"
+import { EyesCloseIcon, EyesOpenIcon } from "../icons"
+
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 
@@ -28,8 +29,8 @@ export function Input_Password({ className = "", ...props }: InputPasswordProps)
 				className="absolute right-3 top-1/2 -translate-y-1/2"
 			>
 				{showPassword ?
-					<EyesClose className="w-5 text-darkBlack" />
-					: <EyesOpen className="w-5 text-darkBlack" />}
+					<EyesCloseIcon className="w-5 text-darkBlack" />
+					: <EyesOpenIcon className="w-5 text-darkBlack" />}
 			</button>
 		</div>
 

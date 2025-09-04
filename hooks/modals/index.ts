@@ -1,4 +1,3 @@
-export * from './useAuth';
 export * from './useModal';
 export * from './useModalStore';
 export * from './useSidebarStorage';

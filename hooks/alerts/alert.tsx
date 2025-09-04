@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { AlertProps } from '.'
 import { Colors, Sizes } from '../../components/tools'
 import { AlertContainer } from './alert-container'
-import { CrossIcon, ErrorIcon, InfoIcon, LoadingIcon, SuccessIcon } from '../../components'
+import { CrossIcon, ErrorIcon, InfoIcon, LoadingIcon, SuccessIcon } from '../../components/icons'
 
 interface AlertAsyncProps {
   close: () => void

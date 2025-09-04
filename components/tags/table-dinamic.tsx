@@ -1,4 +1,4 @@
-import { Trash } from "../icons";
+import { TrashIcon } from "../icons";
 
 type TableDinamicProps<T> = {
   data?: T[] | null;
@@ -51,7 +51,7 @@ export function Table_Dinamic<T extends object>({
                   <td>
                     <div className="flex justify-center items-center">
                       <button onClick={() => console.log(JSON.stringify(row))}>
-                        <Trash className="w-5 md:w-7 text-red-600" />
+                        <TrashIcon className="w-5 md:w-7 text-red-600" />
                       </button>
                     </div>
                   </td>

@@ -9,7 +9,7 @@ type AvatarClientProps<T> = {
   imageUrl?: keyof T;
 };
 
-export function Avatar_Circle<T>({
+export function AvatarCircle<T>({
   user,
   keyField,
   imageUrl,

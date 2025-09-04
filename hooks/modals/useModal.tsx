@@ -1,6 +1,6 @@
-import { useCallback, FC } from "react";
-import { generateCryptoId } from "../../utils/generateCryptoId";
-import { useModalStore } from "./useModalStore";
+import { useCallback, FC } from 'react';
+import { generateCryptoId } from '../../utils/generateCryptoId';
+import { useModalContext } from './modal-context';
 
 type ModalProps<T> = {
   component: FC<T>;
@@ -9,18 +9,18 @@ type ModalProps<T> = {
 
 export function useModals<T>({ component, props }: ModalProps<T>) {
   const newModalId = generateCryptoId();
-  const { open, close } = useModalStore();
+  const { open, close } = useModalContext();
 
   const openModal = useCallback(() => {
     open({
       modalId: newModalId,
       component,
       props: {
-        ...props,
+        ...(props as object),
         close: () => close(newModalId),
       } as T,
     });
-  }, [component, props]);
+  }, [component, props, close, open, newModalId]);
 
   return {
     openModal,

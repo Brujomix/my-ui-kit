@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form'
 import { FormField } from './form-field'
 import { useDebouncedCallback } from 'use-debounce'
 import { CrossIcon, IconProps } from '../icons'
-import { Badge } from '../badge'
+import { Badge } from '../badges/badge'
 import { Button } from '../tags'
 
 export type IInputEntityEntity = {
