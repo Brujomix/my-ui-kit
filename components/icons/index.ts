@@ -27,3 +27,4 @@ export * from "./info-icon";
 export * from "./loading-icon";
 export * from "./alert-icon";
 export * from "./dots-icon";
+export * from "./login-icon";
