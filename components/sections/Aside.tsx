@@ -1,19 +1,20 @@
 import clsx from "clsx";
 import {  ReactNode } from "react";
+import { useSidebarContext } from "../../hooks/modals/sidebar-context";
 
 type AsideProps = {
   asideContent?: ReactNode
-  isOpen : boolean
-  headerHeigth : number
+  headerHeight : number
 };
 
-export function Aside({ asideContent, isOpen, headerHeigth }: AsideProps) {
+export function Aside({ asideContent, headerHeight }: AsideProps) {
+  const { isOpen } = useSidebarContext();
   return (
-    <aside 
-    style={{paddingTop : headerHeigth}} 
-    className={clsx(!isOpen && "hidden","z-40 p-4 fixed right-0 w-fit h-screen shadow-l shadow-md shadow-lightGray backdrop-blur-2xl")}>
-        {asideContent}
-
+    <aside
+      style={{ paddingTop: headerHeight }}
+      className={clsx(!isOpen && "hidden", "z-50 px-2 fixed right-0 w-fit h-screen ")}
+    >
+      {asideContent}
     </aside>
   );
 }

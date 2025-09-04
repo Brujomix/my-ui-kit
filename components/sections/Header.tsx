@@ -14,7 +14,7 @@ export function Header({ children, headerHeight, onToggleAside }: HeaderProps) {
     <header
       style={{ height: headerHeight }}
       className=
-      "z-40 fixed border-b-2 border-darkGray top-0 w-full p-4 flex justify-between items-center backdrop-blur-md"
+      "fixed top-0 w-full py-2 px-4 flex justify-between items-center"
     >
       <Brand />
       <div>
