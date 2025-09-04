@@ -17,7 +17,7 @@ export function GeneralLayout({ children, asideContent }: GeneralLayoutProps) {
       <AlertsProvider>
         <ModalProvider>
           <ToastContainer />
-          <Main footerHeight={60} headerHeight={60}>
+          <Main >
             {children}
           </Main>
         </ModalProvider>
