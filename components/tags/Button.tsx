@@ -62,13 +62,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
           'h-min': !maxHeight,
           'h-full': maxHeight,
           'w-full': maxWidth,
-          'text-white bg-green-600/80 focus:bg-green-300/80 dark:bg-green-700/80 dark:focus:bg-green-800/80': mode === 'text' && color === Colors.success,
-          'text-white dark:text-white bg-gray-300 focus:ring-gray-300  dark:bg-gray-700 dark:focus:ring-gray-800': mode === 'text' && color === Colors.secondary,
-          'text-white bg-primary-600  focus:ring-primary-300 dark:bg-primary-700  dark:focus:ring-primary-800': mode === 'text' && color === Colors.primary,
-          'text-white bg-red-600/80 focus:bg-red-300/80 dark:bg-red-700/80 dark:focus:bg-red-800/80': mode === 'text' && color === Colors.danger,
-          'text-white bg-yellow-500/80 focus:bg-yellow-300/80 dark:bg-yellow-500/80 dark:focus:bg-yellow-600/80': mode === 'text' && color === Colors.warning,
-          'hover:bg-gray-400 dark:hover:bg-gray-600': mode === 'text' && color === Colors.secondary && !disabled,
-          'hover:bg-primary-700 dark:hover:bg-primary-600': mode === 'text' && color === Colors.primary && !disabled
+          '  bg-green-700/80 focus:bg-green-800/80': mode === 'text' && color === Colors.success,
+          '  bg-gray-700 focus:ring-gray-800': mode === 'text' && color === Colors.secondary,
+          '  bg-primary-700  focus:ring-primary-800': mode === 'text' && color === Colors.primary,
+          '  bg-red-700/80 focus:bg-red-800/80': mode === 'text' && color === Colors.danger,
+          '  bg-yellow-500/80 focus:bg-yellow-600/80': mode === 'text' && color === Colors.warning,
+          'hover:bg-gray-400': mode === 'text' && color === Colors.secondary && !disabled,
+          'hover:bg-primary-700': mode === 'text' && color === Colors.primary && !disabled
         }
       )}
       onClick={handleClick}
@@ -111,7 +111,7 @@ type LinkProps = ButtonProps & {
   to: To
 }
 
-export function LinkButton ({
+export function LinkButton({
   children,
   to,
   mode = 'text',
@@ -128,9 +128,9 @@ export function LinkButton ({
           'text-xs px-2 py-1.5': mode === 'text' && size === Sizes.sm,
           'text-md px-4 py-2': mode === 'text' && size === Sizes.lg,
 
-          'text-black dark:text-white bg-gray-300 focus:ring-gray-300  dark:bg-gray-700 dark:focus:ring-gray-800': mode === 'text' && color === Colors.secondary,
-          'text-white bg-primary-600  focus:ring-primary-300 dark:bg-primary-700  dark:focus:ring-primary-800': mode === 'text' && color === Colors.primary,
-          'text-white bg-red-600/80 focus:bg-red-300/80 dark:bg-red-700/80 dark:focus:bg-red-800/80': mode === 'text' && color === Colors.danger
+          '   bg-gray-700 focus:ring-gray-800': mode === 'text' && color === Colors.secondary,
+          '  bg-primary-700  focus:ring-primary-800': mode === 'text' && color === Colors.primary,
+          '   bg-red-700/80 focus:bg-red-800/80': mode === 'text' && color === Colors.danger
         }
       )}
       to={to}
@@ -161,7 +161,7 @@ interface PropsSkeleton {
   children: ReactNode
 }
 
-export function ButtonSkeleton ({ type = 'button', color = (type === 'button' ? 'secondary' : 'primary'), size = 'normal', children }: PropsSkeleton) {
+export function ButtonSkeleton({ type = 'button', color = (type === 'button' ? 'secondary' : 'primary'), size = 'normal', children }: PropsSkeleton) {
   return (
     <div
       className={clsx(
@@ -169,8 +169,8 @@ export function ButtonSkeleton ({ type = 'button', color = (type === 'button' ? 
         {
           'text-sm px-3 py-2': size === 'normal',
           'text-2xs leading-2xs px-2 py-1': size === 'small',
-          'bg-gray-600/50 dark:bg-gray-700/50': ((color) === 'secondary'),
-          'bg-primary-600/50 dark:bg-primary-700/50': color === 'primary'
+          'bg-gray-600/50': ((color) === 'secondary'),
+          'bg-primary-600/50': color === 'primary'
         }
       )}
     >

@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
-import { Brand } from "../tags/brand";
 import { DotsIcon } from "../icons";
-import { ToggleMode } from "../toggles";
+import { Button } from "../tags";
 
 type HeaderProps = {
   children?: ReactNode
@@ -10,20 +9,20 @@ type HeaderProps = {
 };
 
 export function Header({ children, headerHeight, onToggleAside }: HeaderProps) {
+
   return (
     <header
       style={{ height: headerHeight }}
-      className=
-      "fixed top-0 w-full py-2 px-4 flex justify-between items-center"
+      className="z-50 fixed top-0 w-full py-2 px-4 flex justify-center items-center bg-gray-800"
     >
-      <Brand />
-      <div>
-        {children}
+      <div className="absolute right-4">
+        <Button onClick={onToggleAside}>
+          <DotsIcon className="w-4" />
+        </Button>
       </div>
-      <ToggleMode />
-      <button onClick={onToggleAside}>
-        <DotsIcon className="w-6" />
-      </button>
+      {children}
+      {/* TODO: Implement dark mode toggle */}
+      {/* <ToggleMode /> */}
     </header>
   );
 }

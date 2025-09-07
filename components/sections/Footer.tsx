@@ -3,13 +3,12 @@ import { VERSION } from '../../../lib/constants/version';
 
 type FooterProps = {
     children? : ReactNode
-    footerHeight: number
     footerContent?: ReactNode
 };
 
-export function Footer({footerHeight, footerContent}: FooterProps) {
-  return <footer style={{height:footerHeight}} className="z-40 w-full p-2 fixed bottom-0 bg-darkBlack">
+export function Footer({ footerContent }: FooterProps) {
+  return <footer className="py-2 absolute bottom-0 w-full">
   {footerContent}
-  <p className="text-right text-xs italic">version : {VERSION} </p>
+  <p className="text-xs italic opacity-50">version : {VERSION} </p>
   </footer>;
 }

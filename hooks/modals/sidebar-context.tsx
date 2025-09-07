@@ -18,7 +18,7 @@ export const SidebarProvider = ({ children }: { children: ReactNode }) => {
   }, [isOpen]);
 
   const openCloseSidebar = useCallback(() => {
-    setIsOpen((prev: any) => !prev);
+    setIsOpen((prev: boolean) => !prev);
   }, []);
 
   return (
