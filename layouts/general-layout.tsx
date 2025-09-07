@@ -24,7 +24,7 @@ export function GeneralLayout({ children, asideContent, footerContent, headerHei
           asideContent={asideContent}
           footerContent={footerContent}
         />
-        <Main>
+        <Main headerHeight={headerHeight}>
           {children}
         </Main>
     </AlertsProvider>

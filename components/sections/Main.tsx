@@ -2,13 +2,13 @@ import { ReactNode } from "react";
 
 type MainProps = {
   children?: ReactNode;
-  headerHeight?: number;
+  headerHeight: number;
   footerHeight?: number;
 };
 
 export function Main({ children, headerHeight, footerHeight }: MainProps) {
   return (
-    <div
+    <div className="p-2 flex-1"
       style={{
         marginTop: headerHeight && headerHeight + 10,
         marginBottom: footerHeight,
