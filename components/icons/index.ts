@@ -28,3 +28,4 @@ export * from "./loading-icon";
 export * from "./alert-icon";
 export * from "./dots-icon";
 export * from "./login-icon";
+export * from "./search-icon";
