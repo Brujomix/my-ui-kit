@@ -1,10 +1,9 @@
 import clsx from 'clsx'
 import { useFormContext } from 'react-hook-form'
 import { FormField } from './form-field'
-import { useModals } from '../modals/use-modals'
 import { CameraIcon, CrossIcon } from '../icons'
-import { ModalProps } from '../modals'
 import { QrLector } from '../qr'
+import { ModalProps, useModals } from '../../hooks/modals'
 
 interface Props {
   label?: string

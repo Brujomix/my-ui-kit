@@ -1,4 +1,4 @@
-import { Colors } from 'darkflow-ui/tools/colors'
+import { Colors } from '../../components/tools'
 
 export * from './use-modals'
 export * from './modals-renderer'
