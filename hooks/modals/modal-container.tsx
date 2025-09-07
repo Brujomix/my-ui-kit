@@ -1,7 +1,8 @@
+
 import { MouseEvent, ReactNode } from 'react'
 import clsx from 'clsx'
-import { Colors } from '../tools/colors'
-import { CrossIcon } from '../icons'
+import { Colors } from '../../components/tools'
+import { CrossIcon } from '../../components/icons'
 
 interface PropsModalContainer {
   onClickOutside?: (event: MouseEvent<HTMLDivElement>) => void
@@ -46,12 +47,12 @@ export function ModalContainer ({ children, onClickOutside, onClickCross, border
         className={clsx(
           'relative border p-4 bg-gray-900 dark:bg-gray-900 rounded-lg shadow-zinc-950 shadow-lg',
           {
-            'border border-gray-200/50 dark:border-gray-700/50': border == null,
+            'border border-gray-700/50': border == null,
             'border-4 border-red-600': border === Colors.danger,
             'border-4 border-green-600': border === Colors.success,
             'border-4 border-primary-600': border === Colors.primary,
             'border-4 border-yellow-600': border === Colors.warning,
-            'border-4 border-gray-200/50 dark:border-gray-700/50': border === Colors.secondary
+            'border-4 border-gray-700/50': border === Colors.secondary
           }
         )}
       >

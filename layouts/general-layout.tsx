@@ -1,30 +1,36 @@
 import { ReactNode } from "react";
-import { ToastContainer } from "react-toastify";
-import { Main } from "../components/sections/main";
-import { useSidebarContext } from "../hooks/modals/sidebar-context";
-import { ModalProvider } from "../hooks";
+import { useSidebarContext } from "../hooks/sidebar";
 import { AlertsProvider } from "../hooks/alerts/alerts-context";
-import { Aside, Header } from "../components/sections";
+import { ModalProvider } from "../hooks/modals";
+import { ModalsRenderer } from "../hooks/modals/modals-renderer";
+import { ToastContainer } from "react-toastify";
+import { Aside, Header, Main } from "../components/sections";
 
 type GeneralLayoutProps = {
   children: ReactNode
   asideContent?: ReactNode
   footerContent?: ReactNode
+  headerHeight: number
 };
 
-export function GeneralLayout({ children, asideContent, footerContent }: GeneralLayoutProps) {
-  const headerHeight = 60 + 8;
+export function GeneralLayout({ children, asideContent, footerContent, headerHeight }: GeneralLayoutProps) {
   const { openCloseSidebar } = useSidebarContext();
   return (
-      <AlertsProvider>
-        <ModalProvider>
-          <ToastContainer />
-          <Header headerHeight={headerHeight} onToggleAside={openCloseSidebar} />
-          <Aside headerHeight={headerHeight} asideContent={asideContent} />
-          <Main >
-            {children}
-          </Main>
-        </ModalProvider>
-      </AlertsProvider>
+    <AlertsProvider>
+      <ModalProvider>
+        <ModalsRenderer />
+        <ToastContainer />
+        <Header headerHeight={headerHeight} onToggleAside={openCloseSidebar} />
+        <Aside
+          headerHeight={headerHeight}
+          asideContent={asideContent}
+          footerContent={footerContent}
+        />
+        <Main>
+          {children}
+        </Main>
+
+      </ModalProvider>
+    </AlertsProvider>
   );
 }

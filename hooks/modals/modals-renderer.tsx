@@ -1,10 +1,9 @@
 import { useLocation } from 'react-router-dom'
 import { FC, useEffect, useRef, useState } from 'react'
-
 import { ModalContainer } from './modal-container'
 import { useModals } from './use-modals'
 import { ModalProps } from '.'
-import { Colors } from '../tools/colors'
+import { Colors } from '../../components/tools'
 
 export function ModalsRenderer () {
   const { modals, closeAll } = useModals()
@@ -34,7 +33,6 @@ interface ModalRendererProps<T = undefined> {
 
 type ColorType = keyof typeof Colors
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ModalRenderer ({ Component, props, modalKey, close }: ModalRendererProps) {
   const disableOutsideClick = useRef(false)
   const [border, setBorder] = useState<ColorType | undefined>()

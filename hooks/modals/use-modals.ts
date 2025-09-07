@@ -13,7 +13,6 @@ export type UseModalProps<T = unknown> = T extends unknown
     }
 
 interface UseModals {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   modals: Array<UseModalProps<any> & { modalKey: string; close: () => void }>
   open: <T>(props: UseModalProps<T>) => string
   close: ({ modalKey }: { modalKey: string }) => void
@@ -23,7 +22,6 @@ interface UseModals {
 export const useModals = create<UseModals>((set) => ({
   modals: [],
   open: <T>({ Component, props }: UseModalProps<T>) => {
-    // Quitar el foco de cualquier elemento que lo tenga
     const elementoConFoco = document.activeElement
     if (elementoConFoco != null && elementoConFoco instanceof HTMLElement) {
       elementoConFoco.blur()
