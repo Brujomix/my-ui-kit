@@ -106,26 +106,75 @@ export function Filter<T extends TermConfigBase | undefined = undefined> ({ plac
   }
 
   return (
-    <div
-      className='flex flex-row items-center pl-4 pr-2 mb-4 w-full text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-lg'
-    >
-      <SearchIcon
-        className='w-4 h-4 mr-2 opacity-60'
-      />
-      <input
-        onChange={handleSearchToggle}
-        placeholder={placeholder}
-        className='text-white py-2.5 text-sm font-medium placeholder:font-light rounded-lg bg-transparent focus:outline-none flex-1'
-        type='text'
-      />
+    <div className='mb-4 w-full'>
+      {/* Input de búsqueda */}
+      <div className='flex items-center pl-4 pr-2 py-2.5 md:py-0 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-lg mb-2 md:mb-0 md:rounded-r-none'>
+        <SearchIcon
+          className='w-4 h-4 mr-2 opacity-60'
+        />
+        <input
+          onChange={handleSearchToggle}
+          placeholder={placeholder}
+          className='text-white text-sm font-medium placeholder:font-light rounded-lg bg-transparent focus:outline-none flex-1'
+          type='text'
+        />
+        {/* Filtros en desktop - mantienen el layout original */}
+        {
+          termsProps && (
+            <div className='hidden md:flex items-center gap-2 ml-2'>
+              {Object.keys(termsProps).map((term) => {
+                const config = termsProps[term]
+                if (config.type === 'select' && config.options) {
+                  return (
+                    <label key={term} className='flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer'>
+                      {config.label}
+                      <select
+                        value={typeof status.terms![term] === 'string' ? status.terms![term] as string : ''}
+                        onChange={e => handleSelectChange(term, e.target.value)}
+                        className='ml-1 px-2 py-1 rounded border bg-gray-400/80 border-gray-800 text-xs text-gray-900'
+                      >
+                        {config.options.map(opt => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                    </label>
+                  )
+                }
+                // Default: checkbox
+                return (
+                  <label
+                    key={term}
+                    className={`flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer transition-colors
+                      ${status.terms![term]
+                        ? 'bg-gray-400/80 text-gray-900'
+                        : 'bg-transparent text-gray-800/80 dark:text-gray-400/80 border border-gray-500/20'}
+                    `}
+                  >
+                    <input
+                      type='checkbox'
+                      checked={!!status.terms![term]}
+                      onChange={() => handleTermToggle(term)}
+                      className='form-checkbox text-blue-500 h-4 w-4'
+                      style={{ accentColor: status.terms![term] ? '#333' : undefined }}
+                    />
+                    {config.label}
+                  </label>
+                )
+              })}
+            </div>
+          )
+        }
+      </div>
+      
+      {/* Filtros en mobile - separados con justify-between */}
       {
         termsProps && (
-          <div className='flex items-center gap-2 ml-2'>
+          <div className='flex md:hidden justify-between items-center gap-2 px-2'>
             {Object.keys(termsProps).map((term) => {
               const config = termsProps[term]
               if (config.type === 'select' && config.options) {
                 return (
-                  <label key={term} className='flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer'>
+                  <label key={term} className='flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer text-gray-900 dark:text-gray-100'>
                     {config.label}
                     <select
                       value={typeof status.terms![term] === 'string' ? status.terms![term] as string : ''}
