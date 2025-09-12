@@ -115,7 +115,7 @@ export function Filter<T extends TermConfigBase | undefined = undefined> ({ plac
       <input
         onChange={handleSearchToggle}
         placeholder={placeholder}
-        className='py-2.5 text-sm font-medium placeholder:font-light rounded-lg bg-transparent focus:outline-none flex-1'
+        className='text-white py-2.5 text-sm font-medium placeholder:font-light rounded-lg bg-transparent focus:outline-none flex-1'
         type='text'
       />
       {
