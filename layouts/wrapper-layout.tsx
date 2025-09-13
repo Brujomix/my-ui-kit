@@ -1,10 +1,20 @@
 import { SidebarProvider } from "../hooks/sidebar/sidebar-context";
 import { GeneralLayout } from "./general-layout";
 
-export function WrapperLayout({ children }: { children: React.ReactNode }) {
+type WrapperLayoutProps = {
+  asideContent?: React.ReactNode
+  headerContent?: React.ReactNode
+  children: React.ReactNode
+}
+
+export function WrapperLayout({ asideContent, headerContent, children }: WrapperLayoutProps) {
   return (
     <SidebarProvider>
-      <GeneralLayout headerHeight={60}>
+      <GeneralLayout 
+        headerHeight={60}
+        asideContent={asideContent}
+        footerContent={headerContent}
+      >
         {children}
       </GeneralLayout>
     </SidebarProvider>
