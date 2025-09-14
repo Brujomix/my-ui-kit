@@ -5,5 +5,5 @@ export * from './input-password';
 export * from './input-search';
 export * from './redirect-link';
 export * from './select-input';
-export * from './table-dinamic';
+export * from './table';
 export * from './text-area';
