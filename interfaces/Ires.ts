@@ -1,4 +1,4 @@
-export interface IRes {
-    message : string,
-    error : string
+export interface IRes<TData = any, TError = any> {
+    data?: TData
+    error?: TError
 }
