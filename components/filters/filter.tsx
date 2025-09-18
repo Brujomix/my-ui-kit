@@ -106,16 +106,16 @@ export function Filter<T extends TermConfigBase | undefined = undefined> ({ plac
   }
 
   return (
-    <div className='mb-4 w-full'>
+    <div className='w-full z-40'>
       {/* Input de búsqueda */}
-      <div className='flex items-center pl-4 pr-2 py-2.5 md:py-0 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-lg mb-2 md:mb-0 md:rounded-r-none'>
+      <div className='flex rounded-md items-center pl-4 pr-2  text-gray-900  border border-gray-900 dark:border-gray-400'>
         <SearchIcon
-          className='w-4 h-4 mr-2 opacity-60'
+          className='w-4 h-4 mr-2'
         />
         <input
           onChange={handleSearchToggle}
           placeholder={placeholder}
-          className='text-white text-sm font-medium placeholder:font-light rounded-lg bg-transparent focus:outline-none flex-1'
+          className=' text-sm font-medium rounded-lg bg-transparent focus:outline-none flex-1'
           type='text'
         />
         {/* Filtros en desktop - mantienen el layout original */}
