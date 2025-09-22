@@ -1,5 +1,15 @@
-import { RedirectLink } from "./redirect-link";
+import { FC } from 'react'
+import { RedirectLink } from './redirect-link'
 
-export function Brand() {
-  return <RedirectLink url="/">Brand</RedirectLink>;
+type BrandProps = {
+  className?: string
+  icon?: FC
+}
+
+export function Brand ({ className, icon: Icon }: BrandProps) {
+  return (
+    <RedirectLink url='/' className={className}>
+      {Icon && <Icon />} HOME
+    </RedirectLink>
+  )
 }

@@ -1,28 +1,27 @@
-import { ReactNode } from "react";
-import { DotsIcon } from "../icons";
-import { Button } from "../tags";
+import { ReactNode } from 'react'
+import { DotsIcon } from '../icons'
+import { Button } from '../tags'
+import { ToggleMode } from '../toggles'
 
 type HeaderProps = {
-  children?: ReactNode
+  headerContent?: ReactNode
   headerHeight?: number
   onToggleAside: () => void
-};
+}
 
-export function Header({ children, headerHeight, onToggleAside }: HeaderProps) {
-
+export function Header ({ headerContent, headerHeight, onToggleAside }: HeaderProps) {
   return (
     <header
       style={{ height: headerHeight }}
-      className="z-50 fixed top-0 w-full px-4 flex justify-center items-center bg-gray-600"
+      className='z-50 fixed top-0 w-full px-4 flex justify-center items-center bg-gray-600'
     >
-      <div className="absolute right-4">
+      <div className='flex gap-4  items-center absolute right-4'>
+        <ToggleMode />
         <Button onClick={onToggleAside}>
-          <DotsIcon className="w-4" />
+          <DotsIcon className='w-4' />
         </Button>
       </div>
-      {children}
-      {/* TODO: Implement dark mode toggle */}
-      {/* <ToggleMode /> */}
+      {headerContent}
     </header>
-  );
+  )
 }
