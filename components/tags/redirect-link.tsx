@@ -23,7 +23,7 @@ export function RedirectLink<T> ({
       state={stateProps}
       onClick={() => callback?.()}
       className={clsx(
-        'grid place-items-center p-2 border border-deepBlue rounded-md hover:opacity-70 transition-opacity duration-300 backdrop-blur-md',
+        'grid p-2 hover:opacity-70 transition-opacity duration-300 backdrop-blur-md',
         className
       )}
     >
