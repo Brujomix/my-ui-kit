@@ -1,5 +1,4 @@
 import { ReactNode } from 'react'
-import { useSidebarContext } from '../hooks/sidebar'
 import { AlertsProvider } from '../hooks/alerts/alerts-context'
 import { ModalsRenderer } from '../hooks/modals/modals-renderer'
 import { ToastContainer } from 'react-toastify'
@@ -14,14 +13,12 @@ type GeneralLayoutProps = {
 }
 
 export function GeneralLayout ({ children, asideContent, footerContent, headerContent, headerHeight }: GeneralLayoutProps) {
-  const { openCloseSidebar } = useSidebarContext()
   return (
     <AlertsProvider>
       <ModalsRenderer />
       <ToastContainer />
-      <Header headerContent={headerContent} headerHeight={headerHeight} onToggleAside={openCloseSidebar} />
+      <Header headerContent={headerContent} headerHeight={headerHeight} />
       <Aside
-        headerHeight={headerHeight}
         asideContent={asideContent}
         footerContent={footerContent}
       />

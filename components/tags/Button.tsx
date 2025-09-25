@@ -67,7 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
           '  bg-primary-700  focus:ring-primary-800': mode === 'text' && color === Colors.primary,
           '  bg-red-700/80 focus:bg-red-800/80': mode === 'text' && color === Colors.danger,
           '  bg-yellow-500/80 focus:bg-yellow-600/80': mode === 'text' && color === Colors.warning,
-          'hover:bg-gray-400': mode === 'text' && color === Colors.secondary && !disabled,
+          'hover:bg-gray-600': mode === 'text' && color === Colors.secondary && !disabled,
           'hover:bg-primary-700': mode === 'text' && color === Colors.primary && !disabled
         }
       )}
@@ -111,7 +111,7 @@ type LinkProps = ButtonProps & {
   to: To
 }
 
-export function LinkButton({
+export function LinkButton ({
   children,
   to,
   mode = 'text',
@@ -161,7 +161,7 @@ interface PropsSkeleton {
   children: ReactNode
 }
 
-export function ButtonSkeleton({ type = 'button', color = (type === 'button' ? 'secondary' : 'primary'), size = 'normal', children }: PropsSkeleton) {
+export function ButtonSkeleton ({ type = 'button', color = (type === 'button' ? 'secondary' : 'primary'), size = 'normal', children }: PropsSkeleton) {
   return (
     <div
       className={clsx(
