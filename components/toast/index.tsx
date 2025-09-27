@@ -13,30 +13,31 @@ export interface OpenToastAsync {
   close: () => void
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const openToastAsync = ({ message }: OpenToastProps): OpenToastAsync => {
-  const toastId = toast.loading(message, { 
+  const toastId = toast.loading(message, {
     autoClose: false,
     closeButton: false,
     hideProgressBar: true
   })
 
   const onSuccess = ({ message }: OpenToastProps) => {
-    toast.update(toastId, { 
-      render: message, 
-      type: 'success', 
-      isLoading: false, 
-      autoClose: 4000, 
+    toast.update(toastId, {
+      render: message,
+      type: 'success',
+      isLoading: false,
+      autoClose: 1500,
       closeButton: false,
       hideProgressBar: true
     })
   }
 
   const onError = ({ message }: OpenToastProps) => {
-    toast.update(toastId, { 
-      render: message, 
-      type: 'error', 
-      isLoading: false, 
-      autoClose: 4000, 
+    toast.update(toastId, {
+      render: message,
+      type: 'error',
+      isLoading: false,
+      autoClose: 4000,
       closeButton: false,
       hideProgressBar: true
     })
@@ -54,7 +55,7 @@ export function ToastContainer () {
     <ToastContainerLibrary
       theme='dark'
       position='bottom-right'
-      hideProgressBar={true}
+      hideProgressBar
       closeButton
       stacked={false}
       // An optional css class to set
@@ -62,7 +63,7 @@ export function ToastContainer () {
       // An optional css class for the toast.
       toastClassName='h-min z-50 min-h-0 bg-gray-950 px-4 shadow-xl [&_.Toastify__progress-bar]:!hidden'
       // An optional css class to set for the toast content
-      //bodyClassName='text-sm p-0 m-0 h-min min-h-0 z-50'
+      // bodyClassName='text-sm p-0 m-0 h-min min-h-0 z-50'
     />
   )
 }
