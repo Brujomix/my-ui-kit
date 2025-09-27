@@ -8,7 +8,7 @@ interface TableCellProps {
 
 export function TableCell ({ className, children }: TableCellProps) {
   return (
-    <td className={`px-6 py-4 whitespace-nowrap ${className}`}>
+    <td className={`px-2 py-2 whitespace-nowrap ${className}`}>
       {children}
     </td>
   )
@@ -26,7 +26,7 @@ export function TableCellLink ({ className, children, to, state }: TableCellLink
       <Link
         to={to}
         state={state}
-        className='px-6 py-4 whitespace-nowrap'
+        className='px-4 py-2 whitespace-nowrap'
       >
         {children}
       </Link>
@@ -43,7 +43,7 @@ export function TableCellButton ({ className, children, onClick }: TableCellButt
     <td className={className}>
       <button
         onClick={onClick}
-        className='px-6 py-4 whitespace-nowrap'
+        className='px-4 py-2 whitespace-nowrap'
       >
         {children}
       </button>
@@ -78,7 +78,7 @@ interface TableCellActionProps {
 
 export function TableCellActions ({ children }: TableCellActionProps) {
   return (
-    <td className='px-6 py-4'>
+    <td className='px-4 py-2'>
       <div
         className='flex justify-end items-center gap-2 md:invisible group-hover:visible'
       >
@@ -130,7 +130,7 @@ export function TableColumnWithSorted<T> ({ children, sortKey, currentSort, onCh
   return (
     <th
       scope='col'
-      className='px-6 py-3'
+      className='px-4 py-3'
     >
       <button
         type='button'
@@ -178,16 +178,16 @@ export function Table ({ children, columns, onSelectAll, isSelectedAll }: TableP
   return (
     <div className='overflow-x-auto w-full max-w-full max-h-full shadow-md rounded-lg custom-scrollbar h-full bg-gray-600/10'>
       <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
-        <thead className='text-xs text-gray-700 uppercase bg-gray-50/90 dark:bg-gray-700/90 dark:text-gray-400'>
+        <thead className=' text-xs text-gray-700 uppercase bg-gray-50/90 dark:bg-gray-700/90 dark:text-gray-400'>
           <tr>
             <>
               {
                 onSelectAll != null && (
-                  <th className='max-w-8 w-8 pl-4'>
+                  <th className='max-w-8 w-8'>
                     <input
                       type='checkbox'
                       checked={isSelectedAll}
-                      className='form-checkbox text-blue-500 h-4 w-4 mt-0.5'
+                      className='form-checkbox text-blue-500 h-2 w-4 mt-0.5'
                       onChange={handleSelectAll}
                     />
                   </th>
@@ -199,7 +199,7 @@ export function Table ({ children, columns, onSelectAll, isSelectedAll }: TableP
                     {
                       typeof column === 'string'
                         ? (
-                          <th key={index} scope='col' className='px-6 py-3'>
+                          <th key={index} scope='col' className='px-2 py-1'>
                             {column}
                           </th>
                           )

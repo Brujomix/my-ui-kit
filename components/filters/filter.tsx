@@ -1,4 +1,3 @@
-
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 import { SearchIcon } from '../icons'
@@ -115,7 +114,7 @@ export function Filter<T extends TermConfigBase | undefined = undefined> ({ plac
         <input
           onChange={handleSearchToggle}
           placeholder={placeholder}
-          className=' text-sm font-medium rounded-lg bg-transparent focus:outline-none flex-1'
+          className='p-1 text-sm font-medium rounded-lg bg-transparent focus:outline-none flex-1'
           type='text'
         />
         {/* Filtros en desktop - mantienen el layout original */}
@@ -165,7 +164,7 @@ export function Filter<T extends TermConfigBase | undefined = undefined> ({ plac
           )
         }
       </div>
-      
+
       {/* Filtros en mobile - separados con justify-between */}
       {
         termsProps && (

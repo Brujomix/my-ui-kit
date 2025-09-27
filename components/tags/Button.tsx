@@ -1,4 +1,4 @@
-import { type ReactNode, MouseEventHandler, FC, forwardRef } from 'react'
+import { type ReactNode, MouseEventHandler, FC, forwardRef, useState } from 'react'
 import clsx from 'clsx'
 
 import { IconProps } from '../icons'
@@ -128,7 +128,7 @@ export function LinkButton ({
           'text-xs px-2 py-1.5': mode === 'text' && size === Sizes.sm,
           'text-md px-4 py-2': mode === 'text' && size === Sizes.lg,
 
-          '   bg-gray-700 focus:ring-gray-800': mode === 'text' && color === Colors.secondary,
+          '   bg-gray-300 focus:ring-gray-800': mode === 'text' && color === Colors.secondary,
           '  bg-primary-700  focus:ring-primary-800': mode === 'text' && color === Colors.primary,
           '   bg-red-700/80 focus:bg-red-800/80': mode === 'text' && color === Colors.danger
         }
@@ -176,5 +176,59 @@ export function ButtonSkeleton ({ type = 'button', color = (type === 'button' ? 
     >
       {children}
     </div>
+  )
+}
+
+/* Button tipo toogle que pueda ejecutar funciones cuando se cambia de estado */
+interface ToggleButtonProps {
+  setToggle: (toggled: boolean) => void
+  size?: keyof typeof Sizes
+  disabled?: boolean
+  toggled?: boolean
+}
+
+export function ToggleButton ({ size = 'md', disabled = false, toggled, setToggle }: ToggleButtonProps) {
+  const [isToggled, setIsToggled] = useState(toggled ?? false)
+
+  const handleClick = () => {
+    if (disabled) return
+    const newState = !isToggled
+    setIsToggled(newState)
+    setToggle(newState)
+  }
+
+  return (
+    <>
+      <button
+        onClick={handleClick} disabled={disabled} type='button'
+        className={clsx('w-14 h-2 rounded-md flex items-center', {
+          ' bg-green-300': isToggled,
+          ' bg-red-300': !isToggled,
+        })}
+      >
+        {/* Div como una bolita para que se pueda mover según el estado de toggle */}
+        <div
+          className={clsx(
+            'rounded-full transition-transform duration-300 ease-in-out',
+            {
+              'bg-green-400': isToggled,
+              'bg-red-600': !isToggled,
+            },
+            {
+              'border border-green-900': isToggled,
+              'border border-red-900': !isToggled,
+            },
+            {
+              'w-3 h-3': size === 'sm',
+              'w-5 h-5': size === 'md',
+              'w-7 h-7': size === 'lg',
+            }
+          )}
+          style={{
+            transform: isToggled ? 'translateX(150%)' : 'translateX(10%)',
+          }}
+        />
+      </button>
+    </>
   )
 }
