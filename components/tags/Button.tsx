@@ -117,6 +117,8 @@ export function LinkButton ({
   mode = 'text',
   color = Colors.secondary,
   size = Sizes.md,
+  maxHeight = false,
+  maxWidth = false,
   Icon
 }: LinkProps) {
   return (
@@ -127,7 +129,9 @@ export function LinkButton ({
           'text-sm px-3 py-2': mode === 'text' && size === Sizes.md,
           'text-xs px-2 py-1.5': mode === 'text' && size === Sizes.sm,
           'text-md px-4 py-2': mode === 'text' && size === Sizes.lg,
-
+          'h-min': !maxHeight,
+          'h-full': maxHeight,
+          'w-full': maxWidth,
           '   bg-gray-300 focus:ring-gray-800': mode === 'text' && color === Colors.secondary,
           '  bg-primary-700  focus:ring-primary-800': mode === 'text' && color === Colors.primary,
           '   bg-red-700/80 focus:bg-red-800/80': mode === 'text' && color === Colors.danger
