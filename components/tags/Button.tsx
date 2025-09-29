@@ -62,12 +62,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
           'h-min': !maxHeight,
           'h-full': maxHeight,
           'w-full': maxWidth,
-          '  bg-green-700/80 focus:bg-green-800/80': mode === 'text' && color === Colors.success,
-          '  bg-gray-700 focus:ring-gray-800': mode === 'text' && color === Colors.secondary,
-          '  bg-primary-700  focus:ring-primary-800': mode === 'text' && color === Colors.primary,
-          '  bg-red-700/80 focus:bg-red-800/80': mode === 'text' && color === Colors.danger,
-          '  bg-yellow-500/80 focus:bg-yellow-600/80': mode === 'text' && color === Colors.warning,
-          'hover:bg-gray-600': mode === 'text' && color === Colors.secondary && !disabled,
+          '  bg-green-600 focus:bg-green-800': mode === 'text' && color === Colors.success,
+          '  bg-gray-400 focus:ring-gray-800': mode === 'text' && color === Colors.secondary,
+          '  bg-primary-600  focus:ring-primary-800': mode === 'text' && color === Colors.primary,
+          '  bg-red-600 focus:bg-red-800': mode === 'text' && color === Colors.danger,
+          '  bg-yellow-600 focus:bg-yellow-800': mode === 'text' && color === Colors.warning,
+          'hover:bg-gray-300': mode === 'text' && color === Colors.secondary && !disabled,
           'hover:bg-primary-700': mode === 'text' && color === Colors.primary && !disabled
         }
       )}
@@ -132,9 +132,9 @@ export function LinkButton ({
           'h-min': !maxHeight,
           'h-full': maxHeight,
           'w-full': maxWidth,
-          '   bg-gray-300 focus:ring-gray-800': mode === 'text' && color === Colors.secondary,
-          '  bg-primary-700  focus:ring-primary-800': mode === 'text' && color === Colors.primary,
-          '   bg-red-700/80 focus:bg-red-800/80': mode === 'text' && color === Colors.danger
+          '   bg-gray-400 focus:ring-gray-800': mode === 'text' && color === Colors.secondary,
+          '  bg-primary-600  focus:ring-primary-800': mode === 'text' && color === Colors.primary,
+          '   bg-red-600 focus:bg-red-800': mode === 'text' && color === Colors.danger
         }
       )}
       to={to}
