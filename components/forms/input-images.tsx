@@ -6,15 +6,15 @@ import { Button } from '../tags'
 type InputImagesProps = {
   name: string
   label?: string
-  defaultValue?: string
+  defaultValue?: boolean
 }
 
-export function InputImagesProduct ({ name, label, defaultValue }: InputImagesProps) {
+export function InputImagesProduct ({ name, label, defaultValue = false }: InputImagesProps) {
   const { register, formState: { errors }, setValue } = useFormContext()
   const inputRef = useRef<HTMLInputElement | null>(null)
 
   useEffect(() => {
-    if (defaultValue != null) {
+    if (defaultValue) {
       setValue(name, defaultValue)
     }
   }, [])
@@ -24,6 +24,7 @@ export function InputImagesProduct ({ name, label, defaultValue }: InputImagesPr
   }
 
   return (
+
     <FormField label={label} error={errors[name]?.message as string | undefined}>
       <input
         {...register(name, { required: 'La imagen es obligatoria' })}
@@ -39,14 +40,9 @@ export function InputImagesProduct ({ name, label, defaultValue }: InputImagesPr
         Seleccionar imágenes
       </Button>
 
-      <div>
-        <div>
-          {/* Vista previa de imágenes seleccionadas */}
-          {/* Esto es solo un ejemplo, necesitarás manejar la vista previa según tus necesidades */}
-          {/* {selectedImages.map((image, index) => (
-            <img key={index} src={URL.createObjectURL(image)} alt={`Preview ${index}`} className='h-20 w-20 object-cover m-1' />
-          ))} */}
-        </div>
+      {/* Canvas para mostrar la imagen por defecto o la imagenes que se carguen */}
+      <div className=' mt-2 flex items-center justify-center '>
+        <canvas className='w-80 h-80 border border-gray-300 rounded-md' />
       </div>
     </FormField>
   )
