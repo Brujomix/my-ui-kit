@@ -21,6 +21,6 @@ export function InputCheckbox ({ name, label }: Props) {
         className='h-4 w-4 accent-gray-200'
       />
       <span className='text-sm font-medium text-gray-400'>{label}</span>
-  </label>
+    </label>
   )
 }

@@ -46,13 +46,13 @@ export function InputText ({ name, disabled, label, convertEmptyToUndefined = tr
         disabled={disabled}
         placeholder={placeholder}
         className={clsx({
-          'text-base': size == undefined,
-          'text-sm': size == 'sm',
-          'text-md': size == 'md',
-          'text-lg': size == 'lg',
-          'text-xl': size == 'xl',
-          'text-2xl': size == 'xxl',
-          'text-4xl': size == 'xxxl'
+          'text-base': size === undefined,
+          'text-sm': size === 'sm',
+          'text-md': size === 'md',
+          'text-lg': size === 'lg',
+          'text-xl': size === 'xl',
+          'text-2xl': size === 'xxl',
+          'text-4xl': size === 'xxxl'
         },
         'font-medium bg-white dark:bg-gray-800 border rounded-lg p-2.5 focus:outline-none focus:ring-1 ',
         {
