@@ -49,6 +49,7 @@ type Props<T extends TermConfigBase | undefined> = {
   terms: T
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getDefaultFilterStatus = <T extends TermConfigBase | undefined = undefined> (terms?: T): FilterStatus<T> => {
   return {
     search: '',
@@ -107,14 +108,14 @@ export function Filter<T extends TermConfigBase | undefined = undefined> ({ plac
   return (
     <div className='w-full z-40'>
       {/* Input de búsqueda */}
-      <div className='flex rounded-md items-center pl-4 pr-2  text-gray-900  border border-gray-900 dark:border-gray-400'>
+      <div className='flex rounded-md items-center pl-4 pr-2  text-gray-900  border border-gray-400'>
         <SearchIcon
           className='w-4 h-4 mr-2'
         />
         <input
           onChange={handleSearchToggle}
           placeholder={placeholder}
-          className='p-1 text-sm font-medium rounded-lg bg-transparent focus:outline-none flex-1'
+          className='p-1 text-sm  rounded-lg bg-transparent focus:outline-none flex-1'
           type='text'
         />
         {/* Filtros en desktop - mantienen el layout original */}
@@ -146,7 +147,7 @@ export function Filter<T extends TermConfigBase | undefined = undefined> ({ plac
                     className={`flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer transition-colors
                       ${status.terms![term]
                         ? 'bg-gray-400/80 text-gray-900'
-                        : 'bg-transparent text-gray-800/80 dark:text-gray-400/80 border border-gray-500/20'}
+                        : 'bg-transparent text-gray-800 dark:text-gray-400 border border-gray-400'}
                     `}
                   >
                     <input
@@ -168,7 +169,7 @@ export function Filter<T extends TermConfigBase | undefined = undefined> ({ plac
       {/* Filtros en mobile - separados con justify-between */}
       {
         termsProps && (
-          <div className='flex md:hidden justify-between items-center gap-2 px-2'>
+          <div className='flex mt-2 md:hidden justify-between items-center gap-2 px-2'>
             {Object.keys(termsProps).map((term) => {
               const config = termsProps[term]
               if (config.type === 'select' && config.options) {
