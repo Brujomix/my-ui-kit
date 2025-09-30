@@ -169,7 +169,7 @@ export function Filter<T extends TermConfigBase | undefined = undefined> ({ plac
       {/* Filtros en mobile - separados con justify-between */}
       {
         termsProps && (
-          <div className='flex mt-2 md:hidden justify-between items-center gap-2 px-2'>
+          <div className='flex mt-2 flex-wrap md:hidden justify-between items-center gap-2 px-2'>
             {Object.keys(termsProps).map((term) => {
               const config = termsProps[term]
               if (config.type === 'select' && config.options) {
