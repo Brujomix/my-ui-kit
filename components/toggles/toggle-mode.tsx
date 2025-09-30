@@ -1,25 +1,27 @@
-import { useState } from "react";
-import { Button } from "../tags";
+import { useState } from 'react'
+import { MoonIcon, SunIcon } from '../icons'
 
-export function ToggleMode() {
-  const [themeMode, setThemeMode] = useState(false);
+export function ToggleMode () {
+  const [themeMode, setThemeMode] = useState(false)
 
   const toggleTheme = () => {
-    setThemeMode(!themeMode);
-    document.documentElement.classList.toggle("dark");
-  };
+    setThemeMode(!themeMode)
+    document.documentElement.classList.toggle('dark')
+  }
 
   return (
     <>
-      {!themeMode ? (
-        <Button onClick={toggleTheme}>
-          <>a</>
-        </Button>
-      ) : (
-        <Button onClick={toggleTheme}>
-          <>A</>
-        </Button>
-      )}
+      {!themeMode
+        ? (
+          <button onClick={toggleTheme}>
+            <MoonIcon className='w-5 text-black' />
+          </button>
+          )
+        : (
+          <button onClick={toggleTheme}>
+            <SunIcon className='w-5 text-gray-200' />
+          </button>
+          )}
     </>
-  );
+  )
 }
