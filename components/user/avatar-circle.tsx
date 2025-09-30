@@ -14,7 +14,7 @@ export function AvatarCircle<T> ({
   imageUrl,
 }: AvatarClientProps<T>) {
   return (
-    <div className='text-3xl rounded-full border p-4 bg-gray-600 border-gray-400'>
+    <div className='text-xl rounded-full border p-3 bg-gray-600 border-gray-600'>
       {imageUrl
         ? (
           <img src={String(user[imageUrl])} alt='Imagen Perfil usuario' />

@@ -9,7 +9,7 @@ type MainProps = {
 export function Main ({ children, headerHeight, footerHeight }: MainProps) {
   return (
     <div
-      className='p-2 flex-1 text-black'
+      className='p-2 flex-1 text-black dark:text-gray-100'
       style={{
         marginTop: headerHeight && headerHeight,
         marginBottom: footerHeight,

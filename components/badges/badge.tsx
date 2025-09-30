@@ -15,11 +15,11 @@ export function Badge ({ children, Icon, color = Colors.secondary }: BadgeProps)
       className={clsx(
         'text-xs font-medium px-2.5 py-0.5 rounded border inline-flex items-center whitespace-nowrap dark:bg-gray-700/25 w-min',
         {
-          'bg-primary-100/50 text-primary-800 border-primary-600': color === Colors.primary,
-          'bg-gray-100/50 text-gray-800 border-gray-600': color === Colors.secondary,
-          'bg-red-100/50 text-red-800 border-red-600': color === Colors.danger,
-          'bg-green-100/50 text-green-800 border-green-600': color === Colors.success,
-          'bg-yellow-100/50 text-yellow-800 border-yellow-600': color === Colors.warning
+          'bg-primary-200 text-primary-800 border-primary-800': color === Colors.primary,
+          'bg-gray-200 text-gray-800 border-gray-800 dark:border-gray-400 dark:text-gray-400': color === Colors.secondary,
+          'bg-red-200 text-red-800 border-red-800': color === Colors.danger,
+          'bg-green-200 text-green-800 border-green-800 dark:border-green-400 dark:text-green-600': color === Colors.success,
+          'bg-yellow-200 text-yellow-800 border-yellow-800': color === Colors.warning
         }
       )}
     >
