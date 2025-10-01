@@ -11,6 +11,7 @@ export interface BadgeProps {
 
 export function Badge ({ children, Icon, color = Colors.secondary }: BadgeProps) {
   return (
+
     <span
       className={clsx(
         'text-xs font-medium px-2.5 py-0.5 rounded border inline-flex items-center whitespace-nowrap dark:bg-gray-700/25 w-min',
