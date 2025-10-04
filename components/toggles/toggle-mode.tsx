@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { MoonIcon, SunIcon } from '../icons'
+import { MoonIcon } from '../icons/moon-icon'
+import { SunIcon } from '../icons/sun-icon'
 
 export function ToggleMode () {
   const [themeMode, setThemeMode] = useState(false)

@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { ReactNode, useRef } from 'react'
 import { useSidebarContext } from '../../hooks/sidebar/sidebar-context'
-import { Footer } from './footer'
+import { Footer } from './Footer'
 
 type AsideProps = {
   asideContent?: ReactNode

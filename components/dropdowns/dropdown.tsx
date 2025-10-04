@@ -2,7 +2,8 @@ import clsx from 'clsx'
 import { FC, ReactNode, RefObject, useEffect, useRef, useState } from 'react'
 import { Link, NavigateOptions, To } from 'react-router-dom'
 import { Sizes } from '../tools'
-import { DotsIcon, IconProps } from '../icons'
+import { IconProps } from '../icons'
+import { DotsIcon } from '../icons/dots-icon'
 
 interface PropsDropdown {
   size?: Sizes

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { FormField } from './form-field'
-import { Button } from '../tags'
+import { Button } from '../tags/button'
 
 type InputImagesProps = {
   name: string

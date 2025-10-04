@@ -1,8 +1,9 @@
 import clsx from 'clsx'
 import { useFormContext } from 'react-hook-form'
 import { FC } from 'react'
-import { IconProps, LoadingIcon } from '../icons'
+import { IconProps } from '../icons'
 import { Colors, Sizes } from '../tools'
+import { LoadingIcon } from '../icons/loading-icon'
 
 interface SubmitProps {
   label: string

@@ -1,8 +1,7 @@
-
 import { MouseEvent, ReactNode } from 'react'
 import clsx from 'clsx'
 import { Colors } from '../../components/tools'
-import { CrossIcon } from '../../components/icons'
+import { CrossIcon } from '../../components/icons/cross-icon'
 
 interface PropsModalContainer {
   onClickOutside?: (event: MouseEvent<HTMLDivElement>) => void

@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
-import { SearchIcon } from '../icons'
+import { SearchIcon } from '../icons/search-icon'
 
 type FilterTermConfigSelect<O extends string[] = string[]> = {
   label: string

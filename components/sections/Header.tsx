@@ -1,8 +1,9 @@
 import { ReactNode } from 'react'
-import { DotsIcon } from '../icons'
-import { Brand, Button } from '../tags'
-import { ToggleMode } from '../toggles'
-import { useSidebarContext } from '../../hooks/sidebar'
+import { Brand } from '../tags/brand'
+import { ToggleMode } from '../toggles/toggle-mode'
+import { Button } from '../tags/button'
+import { DotsIcon } from '../icons/dots-icon'
+import { useSidebarContext } from '../../hooks/sidebar/sidebar-context'
 
 type HeaderProps = {
   headerContent?: ReactNode

@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
 type NavBarProps = {
-    children : ReactNode
-};
+  children: ReactNode
+}
 
-export function NavBar({children}: NavBarProps) {
-  return <nav>{children}</nav>;
+export function NavBar ({ children }: NavBarProps) {
+  return <nav>{children}</nav>
 }

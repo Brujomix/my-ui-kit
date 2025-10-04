@@ -2,7 +2,8 @@ import clsx from 'clsx'
 import { useFormContext } from 'react-hook-form'
 import { FormField } from './form-field'
 import { useState } from 'react'
-import { EyesCloseIcon, EyesOpenIcon } from '../icons'
+import { EyesCloseIcon } from '../icons/eyes-close-icon'
+import { EyesOpenIcon } from '../icons/eyes-open-icon'
 
 interface Props {
   label?: string

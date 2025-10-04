@@ -3,7 +3,11 @@ import clsx from 'clsx'
 import { AlertProps } from '.'
 import { Colors, Sizes } from '../../components/tools'
 import { AlertContainer } from './alert-container'
-import { CrossIcon, ErrorIcon, InfoIcon, LoadingIcon, SuccessIcon } from '../../components/icons'
+import { CrossIcon } from '../../components/icons/cross-icon'
+import { SuccessIcon } from '../../components/icons/success-icon'
+import { InfoIcon } from '../../components/icons/info-icon'
+import { ErrorIcon } from '../../components/icons/error-icon'
+import { LoadingIcon } from '../../components/icons/loading-icon'
 
 interface AlertAsyncProps {
   close: () => void
@@ -86,7 +90,7 @@ export function Alert ({
           {
             'text-black': type === 'warning',
             'text-white': ['danger', 'info', 'success', 'loading'].includes(type)
-          }, "z-50 relative 'flex flex-col justify-center items-center' min-w-[300px] w-auto h-auto p-10")}
+          }, 'z-50 relative \'flex flex-col justify-center items-center\' min-w-[300px] w-auto h-auto p-10')}
       >
 
         {
