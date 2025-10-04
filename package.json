@@ -2,10 +2,6 @@
   "name": "my-ui-kit",
   "version": "0.1.0",
   "private": true,
-  "main": "main.css",
-  "exports": {
-    "./main.css": "./main.css"
-  },
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
@@ -17,8 +13,5 @@
   },
   "dependencies": {
     "qrcode.react": "^4.2.0"
-  },
-  "scripts": {
-    "build": "tsc --emitDeclarationOnly"
   }
 }
