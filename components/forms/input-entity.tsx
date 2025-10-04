@@ -2,7 +2,7 @@ import { FC, MouseEvent, useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { FormField } from './form-field'
 import { useDebouncedCallback } from 'use-debounce'
-import { CrossIcon, IconProps } from '../icons'
+import { IconProps } from '../icons'
 import { Badge } from '../badges/badge'
 import { Button } from '../tags'
 
@@ -106,8 +106,6 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
     }
 
     selectEntity()
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, searchResults])
 
   // No se que hace, no tiene sentido
