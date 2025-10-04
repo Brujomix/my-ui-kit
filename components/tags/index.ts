@@ -1,4 +1,3 @@
-export * from './input'
 export * from './brand'
 export * from './button'
 export * from './input-password'
