@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { BreadcrumbItemProps } from '.'
+import { BreadcrumbItemProps } from './'
 
 export function BreadcrumbItem ({ to, label, detail }: BreadcrumbItemProps) {
   return (

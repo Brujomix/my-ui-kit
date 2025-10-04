@@ -2,7 +2,9 @@ import { ReactNode } from 'react'
 import { AlertsProvider } from '../hooks/alerts/alerts-context'
 import { ModalsRenderer } from '../hooks/modals/modals-renderer'
 import { ToastContainer } from 'react-toastify'
-import { Aside, Header, Main } from '../components/sections'
+import { Header } from '../components/sections/Header'
+import { Aside } from '../components/sections/Aside'
+import { Main } from '../components/sections/Main'
 
 type GeneralLayoutProps = {
   children: ReactNode

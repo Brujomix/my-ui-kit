@@ -1,1 +1,1 @@
-export * from "./Ires"
+export * from './Ires'
