@@ -8,8 +8,8 @@ type SelectInputProps<T> = {
   className?: string
 } & SelectProps
 
-export function Select_Input<T extends object>({
-  className = "",
+export function SelectInput<T extends object> ({
+  className = '',
   data,
   label,
   valueKey,
@@ -17,7 +17,7 @@ export function Select_Input<T extends object>({
   ...props
 }: SelectInputProps<T>) {
   return (
-    <div className="grid gap-2">
+    <div className='grid gap-2'>
       <label>{label}</label>
       <select
         className={`px-4 py-2 rounded border border-deepGray bg-lightGray text-darkGray focus:outline-none focus:ring-2 focus:ring-deepBlue ${className}`}
@@ -30,5 +30,5 @@ export function Select_Input<T extends object>({
         ))}
       </select>
     </div>
-  );
+  )
 }
