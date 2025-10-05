@@ -86,11 +86,7 @@ export function Alert ({
   return (
     <AlertContainer border={border} onClickOutside={handleClickOutside}>
       <div
-        onMouseDown={(e) => e.stopPropagation()} className={clsx(
-          {
-            'text-black': type === 'warning',
-            'text-white': ['danger', 'info', 'success', 'loading'].includes(type)
-          }, 'z-50 relative \'flex flex-col justify-center items-center\' min-w-[300px] w-auto h-auto p-10')}
+        onMouseDown={(e) => e.stopPropagation()} className='z-50 relative flex flex-col justify-center items-center p-10'
       >
 
         {
@@ -101,8 +97,8 @@ export function Alert ({
         }
 
         {type !== 'loading' && counter !== 0 && (
-          <p className={clsx('absolute -right-1 -bottom-2 text-white opacity-50')}>
-            Cerrado automático en: {counter}
+          <p className={clsx('absolute -right-1 -bottom-2 text-xs text-white opacity-50')}>
+            Cerrado automático {counter}
           </p>
         )}
 

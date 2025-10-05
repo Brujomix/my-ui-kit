@@ -25,6 +25,7 @@ const AlertsContext = createContext<UseAlert | undefined>(undefined)
 
 export const AlertsProvider = ({ children }: { children: ReactNode }) => {
   const [alerts, setAlerts] = useState<AlertStore[]>([])
+  console.log(alerts, 'alerts')
 
   const open = useCallback((props: OpenAlertProps) => {
     const newKey = Math.random().toString(36).substring(7)
