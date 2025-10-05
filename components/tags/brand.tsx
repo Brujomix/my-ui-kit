@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { RedirectLink } from '../tags/redirect-link'
+import { RedirectLink } from './redirect-link'
 
 type BrandProps = {
   className?: string
