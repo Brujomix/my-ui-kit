@@ -8,7 +8,7 @@ type InputImagesProps = {
   label?: string
 }
 
-export function InputImagesProduct ({ name, label }: InputImagesProps) {
+export function InputImages ({ name, label }: InputImagesProps) {
   const { register, formState: { errors }, setValue, setError, clearErrors } = useFormContext()
   const inputRef = useRef<HTMLInputElement | null>(null)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
@@ -17,6 +17,9 @@ export function InputImagesProduct ({ name, label }: InputImagesProps) {
   // Actualiza el canvas cuando cambia el archivo
   const handleImageChange = () => {
     const file = inputRef.current?.files?.[0]
+    if (!file) {
+      setValue(name, null)
+    }
     if (file) {
       if (file.type !== 'image/png') {
         // Archivo no soportado
