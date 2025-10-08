@@ -1,4 +1,4 @@
-import { type ReactNode, MouseEventHandler, FC, forwardRef, useState } from 'react'
+import { type ReactNode, MouseEventHandler, FC, forwardRef } from 'react'
 import clsx from 'clsx'
 
 import { IconProps } from '../icons'
@@ -188,54 +188,51 @@ export function ButtonSkeleton ({ type = 'button', color = (type === 'button' ? 
 
 /* Button tipo toogle que pueda ejecutar funciones cuando se cambia de estado */
 interface ToggleButtonProps {
-  setToggle: (toggled: boolean) => void
+  onClick: () => void
   size?: keyof typeof Sizes
   disabled?: boolean
   toggled?: boolean
+  entidad: string
 }
 
-export function ToggleButton ({ size = 'md', disabled = false, toggled, setToggle }: ToggleButtonProps) {
-  const [isToggled, setIsToggled] = useState(toggled ?? false)
-
-  const handleClick = () => {
-    if (disabled) return
-    const newState = !isToggled
-    setIsToggled(newState)
-    setToggle(newState)
-  }
-
+export function ToggleButton ({
+  size = 'md',
+  disabled = false,
+  toggled = false,
+  onClick
+}: ToggleButtonProps) {
   return (
-    <>
-      <button
-        onClick={handleClick} disabled={disabled} type='button'
-        className={clsx('w-14 h-2 rounded-md flex items-center', {
-          ' bg-green-300': isToggled,
-          ' bg-red-300': !isToggled,
-        })}
-      >
-        {/* Div como una bolita para que se pueda mover según el estado de toggle */}
-        <div
-          className={clsx(
-            'rounded-full transition-transform duration-300 ease-in-out',
-            {
-              'bg-green-400': isToggled,
-              'bg-red-600': !isToggled,
-            },
-            {
-              'border border-green-900': isToggled,
-              'border border-red-900': !isToggled,
-            },
-            {
-              'w-3 h-3': size === 'sm',
-              'w-5 h-5': size === 'md',
-              'w-7 h-7': size === 'lg',
-            }
-          )}
-          style={{
-            transform: isToggled ? 'translateX(150%)' : 'translateX(10%)',
-          }}
-        />
-      </button>
-    </>
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      type='button'
+      className={clsx('w-14 h-2 rounded-md flex items-center', {
+        ' bg-green-300': toggled,
+        ' bg-red-300': !toggled,
+      })}
+    >
+      {/* Div como una bolita para que se pueda mover según el estado de toggle */}
+      <div
+        className={clsx(
+          'rounded-full transition-transform duration-300 ease-in-out',
+          {
+            'bg-green-400': toggled,
+            'bg-red-600': !toggled,
+          },
+          {
+            'border border-green-900': toggled,
+            'border border-red-900': !toggled,
+          },
+          {
+            'w-3 h-3': size === 'sm',
+            'w-5 h-5': size === 'md',
+            'w-7 h-7': size === 'lg',
+          }
+        )}
+        style={{
+          transform: toggled ? 'translateX(150%)' : 'translateX(10%)',
+        }}
+      />
+    </button>
   )
 }

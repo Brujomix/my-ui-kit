@@ -4,22 +4,22 @@ import { Button } from '../tags/button'
 
 type ConfirmModalProps = {
   title: string
-  subtitle?: string
+  subTitle?: string
   onConfirm: () => void
 }
 
-export default function ConfirmModal ({ close, props: { title, subtitle, onConfirm } }: ModalProps<ConfirmModalProps>) {
+export function ConfirmModal ({ close, props: { title, subTitle, onConfirm } }: ModalProps<ConfirmModalProps>) {
   const handleConfirm = () => {
     onConfirm()
     close()
   }
 
   return (
-    <>
+    <div className='p-6 max-w-md space-y-4'>
       <InfoIcon className='w-12 h-12 text-yellow-500 mx-auto mb-4' />
-      <h2>{title}</h2>
-      {subtitle && <p className='text-sm text-gray-500'>{subtitle}</p>}
-      <Button onClick={handleConfirm}>Confirmar</Button>
-    </>
+      <h2 className='text-center'>{title}</h2>
+      {subTitle && <p className='text-sm text-gray-500'>{subTitle}</p>}
+      <Button maxWidth color='primary' onClick={handleConfirm}>Confirmar</Button>
+    </div>
   )
 }
