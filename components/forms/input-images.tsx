@@ -14,15 +14,43 @@ export function InputImages ({ name, label }: InputImagesProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [showCross, setShowCross] = useState<boolean>(false)
 
-  // Actualiza el canvas cuando cambia el archivo
+  // Actualiza el canvas cuando cambian los archivos
   const handleImageChange = () => {
-    const file = inputRef.current?.files?.[0]
-    if (!file) {
-      setValue(name, null)
+    const files = inputRef.current?.files
+    if (!files || files.length === 0) {
+      setValue(name, [])
+      setShowCross(false)
+      if (canvasRef.current) {
+        const ctx = canvasRef.current.getContext('2d')
+        if (ctx) {
+          ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
+          // Dibujar un signo de + centrado
+          ctx.save()
+          ctx.strokeStyle = '#bbb'
+          ctx.lineWidth = 6
+          const w = canvasRef.current.width
+          const h = canvasRef.current.height
+          // Línea vertical
+          ctx.beginPath()
+          ctx.moveTo(w / 2, h / 4)
+          ctx.lineTo(w / 2, h * 3 / 4)
+          ctx.stroke()
+          // Línea horizontal
+          ctx.beginPath()
+          ctx.moveTo(w / 4, h / 2)
+          ctx.lineTo(w * 3 / 4, h / 2)
+          ctx.stroke()
+          ctx.restore()
+        }
+      }
+      return
     }
-    if (file) {
+
+    // Validar todos los archivos
+    const validFiles: File[] = []
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i]
       if (file.type !== 'image/png') {
-        // Archivo no soportado
         setError(name, { type: 'manual', message: 'Solo se permiten imágenes PNG.' })
         setValue(name, [])
         if (inputRef.current) inputRef.current.value = ''
@@ -30,9 +58,9 @@ export function InputImages ({ name, label }: InputImagesProps) {
           const ctx = canvasRef.current.getContext('2d')
           if (ctx) ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
         }
+        setShowCross(false)
         return
       } else if (file.size > 600 * 1024) {
-        // Archivo demasiado grande
         setError(name, { type: 'manual', message: 'El archivo no debe superar los 600KB.' })
         setValue(name, [])
         if (inputRef.current) inputRef.current.value = ''
@@ -40,14 +68,18 @@ export function InputImages ({ name, label }: InputImagesProps) {
           const ctx = canvasRef.current.getContext('2d')
           if (ctx) ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
         }
+        setShowCross(false)
         return
       } else {
-        clearErrors(name)
-        setValue(name, [file]) // Guarda el objeto File para subir a Supabase Storage
+        validFiles.push(file)
       }
     }
-    if (file && canvasRef.current) {
-      setShowCross(true)
+    clearErrors(name)
+    setValue(name, validFiles)
+    setShowCross(validFiles.length > 0)
+
+    // Mostrar la primera imagen en el canvas
+    if (validFiles.length > 0 && canvasRef.current) {
       const reader = new FileReader()
       reader.onload = (event) => {
         const img = new window.Image()
@@ -60,31 +92,7 @@ export function InputImages ({ name, label }: InputImagesProps) {
         }
         img.src = event.target?.result as string
       }
-      reader.readAsDataURL(file)
-    } else if (canvasRef.current) {
-      setShowCross(false)
-      // Limpiar canvas y dibujar un signo de + si no hay imagen
-      const ctx = canvasRef.current.getContext('2d')
-      if (ctx) {
-        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
-        // Dibujar un signo de + centrado
-        ctx.save()
-        ctx.strokeStyle = '#bbb'
-        ctx.lineWidth = 6
-        const w = canvasRef.current.width
-        const h = canvasRef.current.height
-        // Línea vertical
-        ctx.beginPath()
-        ctx.moveTo(w / 2, h / 4)
-        ctx.lineTo(w / 2, h * 3 / 4)
-        ctx.stroke()
-        // Línea horizontal
-        ctx.beginPath()
-        ctx.moveTo(w / 4, h / 2)
-        ctx.lineTo(w * 3 / 4, h / 2)
-        ctx.stroke()
-        ctx.restore()
-      }
+      reader.readAsDataURL(validFiles[0])
     }
   }
 
@@ -106,7 +114,7 @@ export function InputImages ({ name, label }: InputImagesProps) {
         onChange={handleImageChange}
       />
       <div className='mx-auto'>
-        <div className='w-40 h-40 relative mt-2 flex items-center justify-center'>
+        <div className='w-24 h-24 relative mt-2 flex items-center justify-center'>
           {
             showCross && (
               <div className='z-40 absolute top-0 right-0'>
@@ -129,8 +137,8 @@ export function InputImages ({ name, label }: InputImagesProps) {
           <canvas
             className='border border-gray-300 rounded-md'
             ref={canvasRef}
-            width={160}
-            height={160}
+            width={96}
+            height={96}
           />
         </div>
       </div>
