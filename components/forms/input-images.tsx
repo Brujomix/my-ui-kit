@@ -60,7 +60,7 @@ export function InputImages ({ name, label }: InputImagesProps) {
         }
         setShowCross(false)
         return
-      } else if (file.size > 600 * 1024) {
+      } else if (file.size > 512 * 512) {
         setError(name, { type: 'manual', message: 'El archivo no debe superar los 600KB.' })
         setValue(name, [])
         if (inputRef.current) inputRef.current.value = ''
