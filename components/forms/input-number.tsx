@@ -10,7 +10,7 @@ interface Props {
   name: string
   convertEmptyToUndefined?: boolean
   Icon?: FC<IconProps>
-  step?: string
+  step?: string | number
   disabled?: boolean
   placeholder?: string
   size?: keyof typeof Sizes
@@ -40,7 +40,7 @@ export function InputNumber ({ name, label, convertEmptyToUndefined = true, Icon
           'text-2xl': size === 'xxl',
           'text-4xl': size === 'xxxl'
         }, hideArrows && 'no-arrow-input',
-        'font-medium text-gray-900 bg-white dark:bg-gray-800 dark:text-gray-100 border rounded-lg p-2.5 focus:outline-none focus:ring-1 ',
+        'font-medium text-gray-200 bg-gray-800 border rounded-lg pl-2 py-2 focus:outline-none focus:ring-1 ',
         {
           'border-gray-200 dark:border-gray-700 focus:ring-gray-300/60': errorMessage === null,
           'border-red-600/40 dark:border-red-600/50 focus:ring-red-600/30': errorMessage != null
@@ -49,7 +49,7 @@ export function InputNumber ({ name, label, convertEmptyToUndefined = true, Icon
         placeholder={placeholder}
         disabled={disabled}
         type='number'
-        step={step}
+        step={typeof step === 'number' ? step.toString() : step}
         {...register(name,
           {
             setValueAs: convertEmptyToUndefined ? (v) => (v === '' || v === null) ? undefined : Number(v) : undefined
