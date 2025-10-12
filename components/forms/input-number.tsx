@@ -15,10 +15,11 @@ interface Props {
   placeholder?: string
   size?: keyof typeof Sizes
   maxHeight?: boolean
+  widthMin?: boolean
   hideArrows?: boolean
 }
 
-export function InputNumber ({ name, label, convertEmptyToUndefined = true, Icon, step = '1', disabled, size = Sizes.md, maxHeight, hideArrows = false, placeholder }: Props) {
+export function InputNumber ({ name, label, convertEmptyToUndefined = true, Icon, step = '1', disabled, size = Sizes.md, maxHeight, widthMin, hideArrows = false, placeholder }: Props) {
   const { register, formState: { errors } } = useFormContext()
 
   const errorMessage = errors?.[name]?.message as string
@@ -28,6 +29,7 @@ export function InputNumber ({ name, label, convertEmptyToUndefined = true, Icon
       label={label}
       error={errorMessage}
       size={size}
+      widthMin={widthMin}
       maxHeight={maxHeight}
     >
       <input

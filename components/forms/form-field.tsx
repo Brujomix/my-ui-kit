@@ -13,16 +13,14 @@ interface Props {
   maxHeight?: boolean
 }
 
-export function FormField ({ label, subLabel, children, error, direction = 'column', widthMin = false, size, maxHeight = false }: Props) {
+export function FormField ({ label, subLabel, children, error, direction = 'column', size, maxHeight = false }: Props) {
   return (
     <label
       className={clsx(
-        'flex relative',
+        'flex relative w-full',
         {
           'flex-col gap-1': direction === 'column',
           'flex-row items-center gap-3': direction === 'row',
-          'min-w-min': widthMin,
-          'w-full': !widthMin,
           'h-full': maxHeight
         }
       )}
