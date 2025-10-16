@@ -4,7 +4,7 @@ import { FormField } from './form-field'
 import { useDebouncedCallback } from 'use-debounce'
 import { IconProps } from '../icons'
 import { Badge } from '../badges/badge'
-import { Button } from '../tags'
+import { Button } from '../tags/button'
 
 export type IInputEntityEntity = {
   labelTitle: string
