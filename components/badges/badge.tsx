@@ -18,6 +18,7 @@ export function Badge ({ children, Icon, color = Colors.secondary, size = Sizes.
       className={clsx(
         'font-medium px-2.5 py-0.5 rounded border inline-flex items-center whitespace-nowrap dark:bg-gray-700/25 w-min',
         {
+          'text-xs': size === Sizes.xs,
           'text-sm ': size === Sizes.sm,
           'text-base ': size === Sizes.md,
           'text-lg': size === Sizes.lg,

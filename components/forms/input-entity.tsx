@@ -87,10 +87,10 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
   // Select entity when value is set from search results is available
   // if search results are not available, search for empty string
   useEffect(() => {
-    console.log('####', name, typeof value, value)
+    // console.log('####', name, typeof value, value)
 
     if (value == null) {
-      console.log('#### No hay valor, no se puede seleccionar')
+      // console.log('#### No hay valor, no se puede seleccionar')
       setSelectedEntity(undefined)
       return
     }
@@ -107,22 +107,6 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
 
     selectEntity()
   }, [value, searchResults])
-
-  // No se que hace, no tiene sentido
-  /* useEffect(() => {
-    if (value == null) {
-      return
-    }
-
-    const entity = searchResults?.find(entity => entity.value === value)
-
-    if (entity == null) {
-      console.log('#### No se encontró la entidad, buscando...')
-      search('')
-    }
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]) */
 
   const handleSelectEntity = (entity: IInputEntityEntity | undefined) => (event: MouseEvent<HTMLButtonElement>) => {
     setValue(name, entity?.value !== '' ? entity?.value : undefined)
@@ -143,7 +127,7 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
         selectedEntity != null && (
           <>
             <div
-              className='flex flex-row w-full justify-between items-center gap-4 py-0.5 px-2.5 bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white'
+              className='flex flex-wrap flex-row w-full justify-between items-center gap-2 py-0.5 px-2 bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white'
             >
               <span className='flex flex-col justify-center gap-0 flex-1 min-h-9'>
                 <h5 className='text-sm tracking-tight text-gray-900 dark:text-white whitespace-nowrap'>
@@ -157,19 +141,21 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
               </span>
               {
                 selectedEntity.labelBadge != null && (
-                  <Badge>
+                  <Badge size='xs'>
                     {selectedEntity.labelBadge}
                   </Badge>
                 )
               }
-              <div>
-                <Button
-                  onClick={handleSelectEntity(undefined)}
-                  disabled={disabled}
-                >
-                  Cambiar
-                </Button>
-              </div>
+
+              <button
+                className='text-red-600 border border-gray-400 px-2 rounded-md'
+                type='button'
+                onClick={handleSelectEntity(undefined)}
+                disabled={disabled}
+              >
+                X
+              </button>
+
             </div>
           </>
         )
@@ -181,7 +167,7 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
               onFocus={() => { setIsFocused(true) }}
               onBlur={() => { setTimeout(() => { setIsFocused(false) }, 250) }}
               type='search'
-              className='w-full text-sm font-medium text-gray-900 bg-white dark:bg-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-gray-300'
+              className='w-full text-xs font-medium text-gray-900 bg-white dark:bg-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-gray-300'
               onChange={(e) => { handleSearch(e.target.value) }}
               disabled={disabled}
               defaultValue={defaultSearch}
@@ -192,6 +178,7 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
                   className='absolute right-2.5 bottom-1.5'
                 >
                   <Button
+                    size='sm'
                     // eslint-disable-next-line react/jsx-handler-names
                     onClick={extraButton.onClick}
                     disabled={disabled}
@@ -204,7 +191,7 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
             {
               disabled !== true && searchResults != null && searchResults.length > 0 && isFocused && (
                 <ul
-                  className='scrollbar absolute z-40 top-[5rem] max-h-36 w-full overflow-y-auto bg-white border border-gray-200 rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700 flex flex-col gap-2 overflow-hidden'
+                  className='scrollbar absolute z-40 top-[3.7rem] max-h-36 w-full overflow-y-auto bg-white border border-gray-200 rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700 flex flex-col gap-2 overflow-hidden'
                 >
                   {
                     searchResults.map((entity) => (
@@ -218,18 +205,18 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
                           className='flex flex-row gap-4 items-center justify-between p-1 w-full'
                         >
                           <div className='flex flex-col gap-0'>
-                            <h5 className='text-sm tracking-tight text-gray-900 dark:text-white flex items-center gap-2'>
+                            <h5 className='text-xs tracking-tight text-gray-900 dark:text-white flex items-center gap-2'>
                               {entity.labelTitle}
                             </h5>
                             <small
-                              className='flex items-center gap-1 text-xs'
+                              className='flex items-center gap-1 text-xs opacity-50'
                             >
                               {entity.labelDescription}
                             </small>
                           </div>
                           {
                             entity.labelBadge != null && (
-                              <Badge>
+                              <Badge size='xs'>
                                 {entity.labelBadge}
                               </Badge>
                             )
