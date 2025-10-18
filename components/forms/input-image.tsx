@@ -14,11 +14,12 @@ export function InputImages ({ name, label }: InputImagesProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [showCross, setShowCross] = useState<boolean>(false)
 
-  // Actualiza el canvas cuando cambian los archivos
+  // Actualiza el canvas cuando cambia el archivo
   const handleImageChange = () => {
     const files = inputRef.current?.files
-    if (!files || files.length === 0) {
-      setValue(name, [])
+    const file = files && files.length > 0 ? files[0] : null
+    if (!file) {
+      setValue(name, null)
       setShowCross(false)
       if (canvasRef.current) {
         const ctx = canvasRef.current.getContext('2d')
@@ -46,40 +47,34 @@ export function InputImages ({ name, label }: InputImagesProps) {
       return
     }
 
-    // Validar todos los archivos
-    const validFiles: File[] = []
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i]
-      if (file.type !== 'image/png') {
-        setError(name, { type: 'manual', message: 'Solo se permiten imágenes PNG.' })
-        setValue(name, [])
-        if (inputRef.current) inputRef.current.value = ''
-        if (canvasRef.current) {
-          const ctx = canvasRef.current.getContext('2d')
-          if (ctx) ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
-        }
-        setShowCross(false)
-        return
-      } else if (file.size > 512 * 512) {
-        setError(name, { type: 'manual', message: 'El archivo no debe superar los 600KB.' })
-        setValue(name, [])
-        if (inputRef.current) inputRef.current.value = ''
-        if (canvasRef.current) {
-          const ctx = canvasRef.current.getContext('2d')
-          if (ctx) ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
-        }
-        setShowCross(false)
-        return
-      } else {
-        validFiles.push(file)
+    // Validar el archivo
+    if (file.type !== 'image/png') {
+      setError(name, { type: 'manual', message: 'Solo se permiten imágenes PNG.' })
+      setValue(name, null)
+      if (inputRef.current) inputRef.current.value = ''
+      if (canvasRef.current) {
+        const ctx = canvasRef.current.getContext('2d')
+        if (ctx) ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
       }
+      setShowCross(false)
+      return
+    } else if (file.size > 512 * 512) {
+      setError(name, { type: 'manual', message: 'El archivo no debe superar los 600KB.' })
+      setValue(name, null)
+      if (inputRef.current) inputRef.current.value = ''
+      if (canvasRef.current) {
+        const ctx = canvasRef.current.getContext('2d')
+        if (ctx) ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
+      }
+      setShowCross(false)
+      return
     }
     clearErrors(name)
-    setValue(name, validFiles)
-    setShowCross(validFiles.length > 0)
+    setValue(name, file)
+    setShowCross(true)
 
-    // Mostrar la primera imagen en el canvas
-    if (validFiles.length > 0 && canvasRef.current) {
+    // Mostrar la imagen en el canvas
+    if (canvasRef.current) {
       const reader = new FileReader()
       reader.onload = (event) => {
         const img = new window.Image()
@@ -92,7 +87,7 @@ export function InputImages ({ name, label }: InputImagesProps) {
         }
         img.src = event.target?.result as string
       }
-      reader.readAsDataURL(validFiles[0])
+      reader.readAsDataURL(file)
     }
   }
 
@@ -109,7 +104,6 @@ export function InputImages ({ name, label }: InputImagesProps) {
         name={name}
         type='file'
         accept='image/png'
-        multiple
         style={{ display: 'none' }}
         onChange={handleImageChange}
       />
@@ -124,7 +118,7 @@ export function InputImages ({ name, label }: InputImagesProps) {
                     e.stopPropagation()
                     if (inputRef.current) {
                       inputRef.current.value = ''
-                      setValue(name, [])
+                      setValue(name, null)
                       handleImageChange()
                     }
                   }}
