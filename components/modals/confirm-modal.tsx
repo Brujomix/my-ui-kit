@@ -16,9 +16,9 @@ export function ConfirmModal ({ close, props: { title, subTitle, onConfirm } }: 
 
   return (
     <div className='p-6 max-w-md space-y-4'>
-      <InfoIcon className='w-12 h-12 text-yellow-500 mx-auto mb-4' />
-      <h2 className='text-center'>{title}</h2>
-      {subTitle && <p className='text-sm text-gray-500'>{subTitle}</p>}
+      <InfoIcon className='w-14 h-14 text-yellow-500 mx-auto mb-4' />
+      <h2 className='text-center text-2xl'>{title}</h2>
+      {subTitle && <p className=' text-gray-500 text-center text-xl'>{subTitle}</p>}
       <Button maxWidth color='primary' onClick={handleConfirm}>Confirmar</Button>
     </div>
   )
