@@ -108,7 +108,7 @@ export function InputImages ({ name, label }: InputImagesProps) {
         onChange={handleImageChange}
       />
       <div className='mx-auto'>
-        <div className='w-24 h-24 relative mt-2 flex items-center justify-center'>
+        <div className='w-32 h-32 relative mt-2 flex items-center justify-center'>
           {
             showCross && (
               <div className='z-40 absolute top-0 right-0'>
@@ -131,8 +131,8 @@ export function InputImages ({ name, label }: InputImagesProps) {
           <canvas
             className='border border-gray-300 rounded-md'
             ref={canvasRef}
-            width={96}
-            height={96}
+            width={128}
+            height={128}
           />
         </div>
       </div>

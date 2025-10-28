@@ -18,13 +18,13 @@ interface Props {
     onClick: () => void
   }
   disabled?: boolean
-  widthMin?: boolean
   maxHeight?: boolean
+  maxWidth?: boolean
   asTextArea?: boolean
   rows?: number
 }
 
-export function InputText ({ name, disabled, label, convertEmptyToUndefined = true, button, placeholder, Icon, widthMin, activeTrim, size = Sizes.md, maxHeight = false, asTextArea = false, rows = 3 }: Props) {
+export function InputText ({ name, disabled, label, convertEmptyToUndefined = true, button, placeholder, Icon, activeTrim, size = Sizes.md, maxHeight = false, maxWidth = false, asTextArea = false, rows = 3 }: Props) {
   const { register, formState: { errors } } = useFormContext()
 
   const three = name.split('.')
@@ -38,8 +38,8 @@ export function InputText ({ name, disabled, label, convertEmptyToUndefined = tr
 
   return (
     <FormField
-      widthMin={widthMin}
       maxHeight={maxHeight}
+      maxWidth={maxWidth}
       size={size}
       label={label}
       error={errorMessage}
@@ -59,13 +59,18 @@ export function InputText ({ name, disabled, label, convertEmptyToUndefined = tr
               'text-2xl': size === 'xxl',
               'text-4xl': size === 'xxxl'
             },
-            'font-medium h-full bg-white dark:bg-gray-800 border rounded-lg p-2.5 focus:outline-none focus:ring-1 ',
+            'font-medium bg-white dark:bg-gray-800 border rounded-lg p-2.5 focus:outline-none focus:ring-1 ',
             {
               'border-gray-200 dark:border-gray-700 focus:ring-gray-300/60': errorMessage == null,
               'border-red-600/40 dark:border-red-600/50 focus:ring-red-600/30': errorMessage != null,
               'text-gray-900 dark:text-gray-100': !disabled,
               'text-gray-900/30 dark:text-gray-100/30': disabled,
               'pl-10': Icon != null
+            },
+            {
+              'h-full': maxHeight,
+              'w-full': maxWidth,
+              'w-fit': !maxWidth
             }
             )}
             {...register(name, {

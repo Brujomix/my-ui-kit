@@ -8,20 +8,23 @@ interface Props {
   children: ReactNode
   error?: string
   direction?: 'row' | 'column'
-  widthMin?: boolean
   size?: keyof typeof Sizes
   maxHeight?: boolean
+  maxWidth?: boolean
 }
 
-export function FormField ({ label, subLabel, children, error, direction = 'column', size, maxHeight = false }: Props) {
+export function FormField ({ label, subLabel, children, error, direction = 'column', size, maxHeight, maxWidth }: Props) {
   return (
     <label
       className={clsx(
-        'flex relative w-full',
+        'flex relative',
         {
           'flex-col gap-1': direction === 'column',
           'flex-row items-center gap-3': direction === 'row',
-          'h-full': maxHeight
+          'h-full': maxHeight,
+          'w-full': maxWidth,
+          'w-fit': !maxWidth
+
         }
       )}
     >

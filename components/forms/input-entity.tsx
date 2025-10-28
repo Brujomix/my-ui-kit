@@ -5,12 +5,14 @@ import { useDebouncedCallback } from 'use-debounce'
 import { IconProps } from '../icons'
 import { Badge } from '../badges/badge'
 import { Button } from '../tags/button'
+import clsx from 'clsx'
 
 export type IInputEntityEntity = {
   labelTitle: string
   labelDescription?: string
   labelBadge?: string
   value: string | number
+
 }
 
 interface Props {
@@ -30,9 +32,11 @@ interface Props {
   disabled?: boolean
   defaultSearch?: string
   conserveSearch?: boolean
+  maxWidth?: boolean
+  maxHeight?: boolean
 }
 
-export function InputEntity ({ searchEntities, label, subLabel, name, nameDescription, convertEmptyToUndefined, convertToNumber, extraButton, direction, disabled, defaultSearch: initialDefaultSearch, conserveSearch }: Props) {
+export function InputEntity ({ searchEntities, maxHeight = false, maxWidth = false, label, subLabel, name, nameDescription, convertEmptyToUndefined, convertToNumber, extraButton, direction, disabled, defaultSearch: initialDefaultSearch, conserveSearch }: Props) {
   const [defaultSearch, setDefaultSearch] = useState<string | undefined>(initialDefaultSearch)
 
   const { register, setValue, watch, formState, clearErrors } = useFormContext()
@@ -122,12 +126,19 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
       subLabel={subLabel}
       error={errorMessage}
       direction={direction}
+      maxHeight={maxHeight}
+      maxWidth={maxWidth}
     >
       {
         selectedEntity != null && (
           <>
             <div
-              className='flex flex-wrap flex-row w-full justify-between items-center gap-2 py-0.5 px-2 bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white'
+              className={clsx(
+                'flex flex-wrap flex-row justify-between items-center gap-2 py-0.5 px-2 bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white', {
+                  'w-full': maxWidth,
+                  'w-fit': !maxWidth,
+                  'h-full': maxHeight,
+                })}
             >
               <span className='flex flex-col justify-center gap-0 flex-1 min-h-9'>
                 <h5 className='text-sm tracking-tight text-gray-900 dark:text-white whitespace-nowrap'>
@@ -167,7 +178,11 @@ export function InputEntity ({ searchEntities, label, subLabel, name, nameDescri
               onFocus={() => { setIsFocused(true) }}
               onBlur={() => { setTimeout(() => { setIsFocused(false) }, 250) }}
               type='search'
-              className='w-full text-xs font-medium text-gray-900 bg-white dark:bg-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-gray-300'
+              className={clsx('text-xs font-medium text-gray-900 bg-white dark:bg-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-gray-300', {
+                'w-full': maxWidth,
+                'w-fit': !maxWidth,
+                'h-full': maxHeight,
+              })}
               onChange={(e) => { handleSearch(e.target.value) }}
               disabled={disabled}
               defaultValue={defaultSearch}

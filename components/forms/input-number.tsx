@@ -15,11 +15,11 @@ interface Props {
   placeholder?: string
   size?: keyof typeof Sizes
   maxHeight?: boolean
-  widthMin?: boolean
+  maxWidth?: boolean
   hideArrows?: boolean
 }
 
-export function InputNumber ({ name, label, convertEmptyToUndefined = true, Icon, step = '1', disabled, size = Sizes.md, maxHeight, widthMin, hideArrows = false, placeholder }: Props) {
+export function InputNumber ({ name, label, convertEmptyToUndefined = true, Icon, step = '1', disabled, size = Sizes.md, maxHeight = false, maxWidth = false, hideArrows = false, placeholder }: Props) {
   const { register, formState: { errors } } = useFormContext()
 
   const errorMessage = errors?.[name]?.message as string
@@ -29,7 +29,7 @@ export function InputNumber ({ name, label, convertEmptyToUndefined = true, Icon
       label={label}
       error={errorMessage}
       size={size}
-      widthMin={widthMin}
+      maxWidth={maxWidth}
       maxHeight={maxHeight}
     >
       <input
@@ -46,6 +46,11 @@ export function InputNumber ({ name, label, convertEmptyToUndefined = true, Icon
         {
           'border-gray-200 dark:border-gray-700 focus:ring-gray-300/60': errorMessage === null,
           'border-red-600/40 dark:border-red-600/50 focus:ring-red-600/30': errorMessage != null
+        },
+        {
+          'h-full': maxHeight,
+          'w-full': maxWidth,
+          'w-fit': !maxWidth
         }
         )}
         placeholder={placeholder}
