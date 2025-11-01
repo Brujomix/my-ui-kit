@@ -21,7 +21,7 @@ export function Header ({ headerContent, headerHeight }: HeaderProps) {
   return (
     <header
       style={{ height: headerHeight }}
-      className='z-50 border-b border-gray-200 fixed top-0 w-full px-4 flex justify-between items-center bg-gray-600'
+      className='z-50 border-b border-gray-600 fixed top-0 w-full px-4 flex justify-between items-center bg-gray-800'
     >
       <>
         <Brand />

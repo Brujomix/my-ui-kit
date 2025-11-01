@@ -106,7 +106,7 @@ export function Filter<T extends TermConfigBase | undefined = undefined> ({ plac
   }
 
   return (
-    <div className='w-full z-40'>
+    <div className='w-full z-40 py-4'>
       {/* Input de búsqueda */}
       <div className='text-gray-950 dark:text-gray-200 flex rounded-md items-center pl-4 pr-2  border border-gray-400'>
         <SearchIcon

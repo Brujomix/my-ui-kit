@@ -19,7 +19,7 @@ export function Aside ({ asideContent, possition = 'left', footerContent }: Asid
       className={clsx(
         !isOpen && 'hidden',
         possition === 'left' ? 'left-0' : 'right-0',
-        'pt-2 z-40 px-2 fixed min-w-52 h-screen bg-gray-400 text-gray-900 flex flex-col dark:bg-gray-900 dark:text-gray-100'
+        'pt-2 z-40 px-2 fixed min-w-52 h-screen border-r border-gray-600 bg-gray-400 text-gray-900 flex flex-col dark:bg-gray-800 dark:text-gray-100'
       )}
     >
       {asideContent}
