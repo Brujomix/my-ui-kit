@@ -10,9 +10,11 @@ interface Props {
   name: string
   convertEmptyToUndefined?: boolean
   placeholder?: string
+  maxWidth?: boolean
+  maxHeight?: boolean
 }
 
-export function InputPassword ({ name, label, convertEmptyToUndefined = true, placeholder }: Props) {
+export function InputPassword ({ name, label, convertEmptyToUndefined = true, placeholder, maxWidth = false, maxHeight = false }: Props) {
   const { register, formState: { errors } } = useFormContext()
   const [showPassword, setShowPassword] = useState(false)
 
@@ -22,6 +24,8 @@ export function InputPassword ({ name, label, convertEmptyToUndefined = true, pl
     <FormField
       label={label}
       error={errorMessage}
+      maxWidth={maxWidth}
+      maxHeight={maxHeight}
     >
       <input
         type={showPassword ? 'text' : 'password'}
@@ -31,6 +35,11 @@ export function InputPassword ({ name, label, convertEmptyToUndefined = true, pl
           {
             'border-gray-200 dark:border-gray-700 focus:ring-gray-300/60': errorMessage == null,
             'border-red-600/40 dark:border-red-600/50 focus:ring-red-600/30': errorMessage != null
+          },
+          {
+            'w-full': maxWidth,
+            'w-fit': !maxWidth,
+            'h-full': maxHeight,
           }
         )}
         {...register(name, { setValueAs: convertEmptyToUndefined ? (v) => v === '' ? undefined : v : undefined })}
