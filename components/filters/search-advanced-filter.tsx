@@ -436,7 +436,7 @@ export function CustomCheckbox ({ checked, label, onChange }: CustomCheckboxProp
   return (
     <button
       type='button'
-      className={`px-3 py-1 rounded transition-colors outline outline-2 outline-slate-400 ${checked ? 'bg-gray-400 text-black' : 'bg-gray-800'}`}
+      className={`px-2 rounded transition-colors outline outline-2 outline-slate-400 ${checked ? 'bg-gray-400 text-black' : 'bg-gray-800'}`}
       onClick={() => onChange(!checked)}
       aria-pressed={checked}
     >
