@@ -339,7 +339,7 @@ export function SearchWithAdvancedFilter<T extends { search?: string }> ({
             .filter(Boolean)}
         </div>
 
-        <div className='flex gap-2'>
+        <div className='flex gap-4'>
           {fieldsConfig
             .filter(field => field.type === 'checkbox' || field.type === 'select')
             .map(field => {
