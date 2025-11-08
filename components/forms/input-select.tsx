@@ -16,7 +16,7 @@ interface Props {
   widthMin?: boolean
 }
 
-export function InputSelect ({ name, label, children, convertEmptyToUndefined = true, button, widthMin }: Props) {
+export function InputSelect ({ name, label, children, convertEmptyToUndefined = true, button }: Props) {
   const { register, formState: { errors } } = useFormContext()
 
   const three = name.split('.')
@@ -30,7 +30,6 @@ export function InputSelect ({ name, label, children, convertEmptyToUndefined = 
 
   return (
     <FormField
-      widthMin={widthMin}
       label={label}
       error={errorMessage}
     >
