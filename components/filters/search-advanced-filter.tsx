@@ -97,7 +97,7 @@ export function createFilterConfig<T extends Record<string, unknown>> (
 export interface SearchWithAdvancedFilterProps<T extends { search?: string }> {
   filters: T
   onChange: (filters: T) => void
-  ModalComponent: FC<ModalProps<{ onApply: (filters: T) => void; currentFilters?: T }>>
+  ModalComponent?: FC<ModalProps<{ onApply: (filters: T) => void; currentFilters?: T }>>
   placeholder?: string
   fieldsConfig: FilterFieldConfig[]
   /**
@@ -177,6 +177,8 @@ export function SearchWithAdvancedFilter<T extends { search?: string }> ({
   }
 
   const handleOpenModal = () => {
+    if (!ModalComponent) return
+
     // Crear una copia de los filtros para evitar problemas de serialización
     const sanitizedFilters = { ...filters }
     Object.keys(sanitizedFilters).forEach(key => {
@@ -224,7 +226,9 @@ export function SearchWithAdvancedFilter<T extends { search?: string }> ({
           placeholder={placeholder}
           className='py-2.5 text-sm font-medium placeholder:font-light rounded-lg bg-transparent focus:outline-none flex-1 border border-gray-200 dark:border-gray-700 px-4'
         />
-        <Button onClick={handleOpenModal}>Filtros avanzados</Button>
+        {ModalComponent && (
+          <Button onClick={handleOpenModal}>Filtros avanzados</Button>
+        )}
       </div>
 
       {/* Filtros aplicados */}
