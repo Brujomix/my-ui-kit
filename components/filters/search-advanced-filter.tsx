@@ -402,17 +402,25 @@ export function SearchWithAdvancedFilter<T extends { search?: string }> ({
                   <div key={field.key} className='flex justify-center items-center gap-2'>
                     <span>{field.displayLabel}</span>
                     <InputSelect
-                      key={field.key}
+                      key={`${field.key}-${filterValue}`}
                       defaultValue={selectedValue}
                       options={selectOptions}
                       onChange={option => {
+                        console.log('Select onChange triggered:', {
+                          fieldKey: field.key,
+                          optionValue: option.value,
+                          currentFilters: filters
+                        })
+
                         // Remover del conjunto de filtros aplicados desde modal cuando se cambia desde UI
                         setModalAppliedFilters(prev => {
                           const newSet = new Set(prev)
                           newSet.delete(field.key)
                           return newSet
                         })
-                        onChange({ ...filters, [field.key]: option.value })
+
+                        const updatedFilters = { ...filters, [field.key]: option.value }
+                        onChange(updatedFilters)
                       }}
                     />
                   </div>

@@ -192,7 +192,6 @@ interface ToggleButtonProps {
   size?: keyof typeof Sizes
   disabled?: boolean
   toggled?: boolean
-  entidad: string
 }
 
 export function ToggleButton ({
