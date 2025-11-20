@@ -35,7 +35,7 @@ export const LoadingDots = ({
 
   return (
     <div className={clsx(
-      'flex items-center justify-center',
+      'flex items-center justify-center mt-10',
       {
         'gap-1': size === 'sm',
         'gap-1.5': size === 'md',
