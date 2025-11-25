@@ -192,46 +192,51 @@ interface ToggleButtonProps {
   size?: keyof typeof Sizes
   disabled?: boolean
   toggled?: boolean
+  label?: string
 }
 
 export function ToggleButton ({
   size = 'md',
   disabled = false,
   toggled = false,
+  label,
   onClick
 }: ToggleButtonProps) {
   return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      type='button'
-      className={clsx('w-14 h-2 rounded-md flex items-center', {
-        ' bg-green-300': toggled,
-        ' bg-red-300': !toggled,
-      })}
-    >
-      {/* Div como una bolita para que se pueda mover según el estado de toggle */}
-      <div
-        className={clsx(
-          'rounded-full transition-transform duration-300 ease-in-out',
-          {
-            'bg-green-400': toggled,
-            'bg-red-600': !toggled,
-          },
-          {
-            'border border-green-900': toggled,
-            'border border-red-900': !toggled,
-          },
-          {
-            'w-3 h-3': size === 'sm',
-            'w-5 h-5': size === 'md',
-            'w-7 h-7': size === 'lg',
-          }
-        )}
-        style={{
-          transform: toggled ? 'translateX(150%)' : 'translateX(10%)',
-        }}
-      />
-    </button>
+    <div className='flex flex-col gap-2 justify-center items-center'>
+      <label>{label}</label>
+      <button
+        onClick={onClick}
+        disabled={disabled}
+        type='button'
+        className={clsx('w-14 h-2 rounded-md flex items-center', {
+          ' bg-green-300': toggled,
+          ' bg-red-300': !toggled,
+        })}
+      >
+        {/* Div como una bolita para que se pueda mover según el estado de toggle */}
+        <div
+          className={clsx(
+            'rounded-full transition-transform duration-300 ease-in-out',
+            {
+              'bg-green-400': toggled,
+              'bg-red-600': !toggled,
+            },
+            {
+              'border border-green-900': toggled,
+              'border border-red-900': !toggled,
+            },
+            {
+              'w-3 h-3': size === 'sm',
+              'w-5 h-5': size === 'md',
+              'w-7 h-7': size === 'lg',
+            }
+          )}
+          style={{
+            transform: toggled ? 'translateX(150%)' : 'translateX(10%)',
+          }}
+        />
+      </button>
+    </div>
   )
 }
