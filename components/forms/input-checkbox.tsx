@@ -3,15 +3,16 @@ import { useFormContext } from 'react-hook-form'
 interface Props {
   label?: string
   name: string
+  isRadio?: boolean
 }
 
-export function InputCheckbox ({ name, label }: Props) {
+export function InputCheckbox ({ name, label, isRadio }: Props) {
   const { register } = useFormContext()
 
   return (
     <label className='flex flex-row gap-2 items-center cursor-pointer'>
       <input
-        type='checkbox'
+        type={isRadio ? 'radio' : 'checkbox'}
         {
           ...register(
             name
