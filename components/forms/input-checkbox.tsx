@@ -4,14 +4,16 @@ interface Props {
   label?: string
   name: string
   isRadio?: boolean
+  value?: string
 }
 
-export function InputCheckbox ({ name, label, isRadio }: Props) {
+export function InputCheckbox ({ name, label, isRadio, value }: Props) {
   const { register } = useFormContext()
 
   return (
     <label className='flex flex-row gap-2 items-center cursor-pointer'>
       <input
+        value={value}
         type={isRadio ? 'radio' : 'checkbox'}
         {
           ...register(
